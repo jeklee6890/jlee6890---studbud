@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+.daily-reminder {
+    width: 45%;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    float: left;
+    text-align: center;
+}
+
+.activity {
+    width: 45%;
+    height: auto;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    float: right;
+    text-align: center;
+}
+
+#enter {
+   padding: 2% 8%;
+   text-align: center;
+   font-size: 1em;
+   border: none;
+   border-radius: 10px;
+   display: block;
+   margin: 0 auto;
+}

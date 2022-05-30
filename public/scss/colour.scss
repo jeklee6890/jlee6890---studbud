@@ -1,0 +1,41 @@
+body {
+    background-color: white;
+    transition: 0.4s;
+
+    // button {
+    //     background-color: black;
+    //     transition: 0.4s;
+        
+    //     &:hover {
+    //         transform: scale(1.1);
+    //     }
+    // }
+    
+}
+
+body.dark {
+    background-color: black;
+    transition: 0.4s;
+
+    // button {
+    //     background-color: white;
+    //     transition: 0.4s;
+    //     &:hover {
+    //         transform: scale(1.1);
+    //     }
+    // }
+}
+
+// colour palette (cave) - dark mode
+// #5C445D (dark purple)
+// #BE9ABB (light purple)
+// #C29E69 (brown)
+// #EAC0C3 (peach)
+// #FCF0AA (light yellow)
+
+// colour palette (lake) - light mode 
+// #405681 (dark blue)
+// #B0CEDF (light blue)
+// #7CBABC (teal)
+// #BEDC97 (light green)
+// #256945 (dark green)

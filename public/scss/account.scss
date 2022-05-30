@@ -1,0 +1,94 @@
+#dark {
+    padding: 2% 3%;
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+#light {
+    padding: 2% 3%;
+    background-color: white;
+    color: black;
+    border-color: black;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.music-container {
+    background-color: lightblue;
+    width: 90%;
+    height: 200px;
+    border-radius: 15px;
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.img-container {
+    position: relative;
+    width: 100px;
+}
+
+.img-container img {
+    width: inherit;
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.action {
+    background-color: lightblue;
+    width: 80px;
+    height: 80px;
+    border: 0;
+    color: gray;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.action-big {
+    font-size: 40px;
+}
+
+.music-info {
+    background-color: white;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+}
+
+.progress-container {
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+.progress {
+    background-color: purple;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}

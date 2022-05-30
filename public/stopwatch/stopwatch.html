@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="../scss/main.scss" rel="stylesheet" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oleo+Script&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body> 
+
+    <nav class="side-nav">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="../tasklist/tasklist.html">Tasks</a></li>
+            <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
+            <li class="nav-item"><a href="../account/account.html">Account Settings</a></li>
+            <li class="nav-item"><a href="../stopwatch/stopwatch.html" class="active">Stopwatch</a></li>
+        </ul>
+    </nav>
+
+    <heading id="stopwatch">
+        <h1>Stopwatch</h1>
+    </heading>
+
+
+    <div id="sidebar">
+        <div class="toggle-button" onclick="show()">
+            <span></span>
+            <span></span>
+        </div>
+
+        <button class="close-button" onclick="hide()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <ul>
+            <li class="timer-side">Flow Timer</li>
+        </ul>
+
+        <div class="watch">
+            <div class="time">
+                00:00:00
+            </div>
+    
+            <div class="controls">
+                <button class="main-buttons" id="start">Start</button>
+                <button class="main-buttons" id="stop">Stop</button>
+                <button class="main-buttons" id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../stopwatch/stopwatch.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="../scss/main.scss" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oleo+Script&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body> 
+    <heading id="account">
+        <h1>Account Settings</h1>
+    </heading>
+
+    <!-- <nav class="side-nav">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="../tasklist/tasklist.html">Tasks</a></li>
+            <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
+            <li class="nav-item"><a href="../account/account.html" class="active">Account Settings</a></li>
+        </ul>
+    </nav> -->
+
+    <div id="modes">
+        <button id="dark">Dark Mode</button>
+        <button id="light">Light Mode</button>
+    </div>
+
+    <div class="music-container">
+        <div class=".music-info"> <!-- pop-up song title and progress bar -->
+            <h4 id="title">Ukulele</h4>
+            <div class="progress-container">
+                <div class="progress"> 
+
+                </div> 
+            </div>
+        </div>
+
+        <audio src="../music/order.mp3" id="audio"></audio>
+
+        <div class="img-container">
+            <img src="../assets/music.jpeg" alt="music cover" id="cover"> 
+        </div>
+
+        <div class="navigation">
+            <button id="previous" class="action">
+                <i class="fas fa-backward"></i>
+            </button>
+
+            <button id="play" class="action action-big">
+                <i class="fas fa-play"></i>
+            </button>
+
+            <button id="next" class="action">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+    <script src="./account.js" type="module"> </script>
+
+    
+    
+</body>
+
+</html>

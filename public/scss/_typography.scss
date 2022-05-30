@@ -1,0 +1,25 @@
+
+body {
+    color: black;
+    font-family: 'Dosis', sans-serif;
+}
+
+body.dark {
+    color: white;
+    font-family: 'Dosis', sans-serif;
+}
+
+
+h1 {
+    font-size: 5em;
+}
+
+.add-task {
+    font-size: 1.5em;
+    color: white;
+
+    &:hover {
+        color: black;
+    }
+}
+
