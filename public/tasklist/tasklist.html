@@ -4,23 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>StudBud - Kanban Board</title>
     <link href="../scss/main.scss" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oleo+Script&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="app-container">
 
-    <nav class="side-nav">
+    <!-- <nav class="side-nav">
         <ul class="nav-links">
             <li class="nav-item"><a href="../tasklist/tasklist.html" class="active">Tasks</a></li>
             <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
             <li class="nav-item"><a href="../account/account.html">Account Settings</a></li>
             <li class="nav-item"><a href="../stopwatch/stopwatch.html">Stopwatch</a></li>
         </ul>
-    </nav>
+    </nav> -->
 
     <heading id="kanban"> 
         <h1> Kanban Board </h1>
@@ -43,10 +44,17 @@
               <h2>Column 3</h2>
               <button class="add-task">+ Add Task</button>
             </div>
+
+            <div class="todo-task" draggable="true">
+                <p>Buy Pizza</p>
+                <button class="close">
+                    <i class="fa-solid fa-x"> </i>
+                </button>
+            </div>
         </div>
 
 
-        <div id="task-grid">
+        <!-- <div id="task-grid">
             <form id="taskform">
                 <label for="task">Task:</label>
                 <input type="text" name="task" id="taskInput" required>
@@ -76,9 +84,7 @@
                 <p id="emptyList">You have not added any tasks yet.</p>
                 <ul></ul>
             </div>
-            
-            <!-- <button id="myBtn">add column</button> -->
-        </div>
+        </div> -->
     </main>
 
 
@@ -86,5 +92,7 @@
 </body>
 
 </html>
+
+<!-- <button id="myBtn">add column</button> -->
 
 

@@ -3,7 +3,7 @@ const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button")
 
 // Selector for the tasklist output
-var tasklist = document.querySelector("#tasklist > ul");
+var tasklist = document.querySelector("#empty > ul");
 
 // DOM elements for the task input fields
 var taskInput = document.getElementById("taskInput");
@@ -51,14 +51,6 @@ form.addEventListener("submit", function(event) {
 // this is a global array to track tasks
 var taskListArray = [];
 
-
-// document.getElementByClassList("add-task").addEventListener("click", function(){
-//     if(document.getElementById("taskform").style.display == "none") {
-//         document.getElementById("taskform").style.display == "block";
-//     } else {
-//         document.getElementById("taskform").style.display == "none";
-//     }
-// })
 
 
 // Function to add task with user inputs as parameters
@@ -117,9 +109,6 @@ function renderTask(task) {
     form.reset();
 }
 
-
-
-
 // Function to remove item from array
 function removeItemFromArray(arr, index) {
     if (index > -1) {
@@ -137,3 +126,13 @@ function updateEmpty() {
         document.getElementById('emptyList').style.display = 'block';
     }
 }
+
+const todos = document.querySelectorAll(".todo-task");
+
+todos.forEach((todo) => {
+    todo.addEventListener("dragstart", drag);
+});
+
+// function drag() {
+
+// }

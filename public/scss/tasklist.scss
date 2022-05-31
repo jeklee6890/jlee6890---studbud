@@ -23,16 +23,20 @@
 
     .k-board {
         display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-        width: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
 
         .column {
+            background-color: pink;
             float: left;
             height: 100%;
+            margin-right: 100px;
         }
 
         .column > h2 {
+            width: 100%;
             text-decoration: underline;
+            text-align: center;
         }
 
         .add-task {
@@ -45,7 +49,7 @@
             margin: 0 auto;
             width: 100%;
             transition: ease 0.4s;
-            background-color: rgb(113, 203, 224);
+            background-color: rgb(33, 203, 224);
             cursor: pointer;
 
             &:hover {
@@ -57,6 +61,24 @@
                 #taskform {
                     display: block;
                 }
+            }
+        }
+
+        .todo-task {
+            p {
+                font-size: 2em;
+                background-color: white;
+                border-radius: 15px;
+                text-align: center;
+            }
+    
+            .close {
+                float: right;
+                background-color: none;
+                color: black;
+                height: 10px;
+                width: 10px;
+                font-size: 10px;
             }
         }
 
@@ -92,4 +114,10 @@
 .kanban-columns:not(:last-child) {
     margin-right: 2%;
 }
+
+@media screen and (max-width: 600px) {
+    .k-board {
+      width: 100%;
+    }
+  }
 
