@@ -5,6 +5,7 @@
     border-color: black;
     border-radius: 25px;
     font-size: 1em;
+    cursor: pointer;
 }
 
 #light {
@@ -14,7 +15,25 @@
     border-color: black;
     border-radius: 25px;
     font-size: 1em;
-    font-weight: bold;
+    cursor: pointer;
+}
+
+.side-nav {
+    position: fixed;
+    width: 100%;
+    top: 30px;
+    overflow: hidden;
+    
+    .nav-item {
+        list-style-type: none;
+        float: left;
+        padding: 1% 2%;
+        text-align: center;
+        width: 20%;
+        background-color: grey;
+        border-style: solid;
+        border-color: red;
+    }
 }
 
 .music-container {

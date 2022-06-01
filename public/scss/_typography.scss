@@ -2,11 +2,29 @@
 body {
     color: black;
     font-family: 'Dosis', sans-serif;
+
+    .add-task {
+        font-size: 1em;
+        color: black;
+    
+        &:hover {
+            color: white;
+        }
+    }
 }
 
 body.dark {
     color: white;
     font-family: 'Dosis', sans-serif;
+
+    .add-task {
+        font-size: 1em;
+        color: white;
+    
+        &:hover {
+            color: black;
+        }
+    }
 }
 
 
@@ -14,12 +32,5 @@ h1 {
     font-size: 5em;
 }
 
-.add-task {
-    font-size: 1.5em;
-    color: white;
 
-    &:hover {
-        color: black;
-    }
-}
 

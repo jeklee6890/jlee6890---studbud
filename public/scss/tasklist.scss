@@ -18,67 +18,79 @@
 
 .kanban-board {
     display: flex;
-    background-color: #B3B3B3;
     padding: 3%;
+    margin: 0 auto;
 
     .k-board {
         display: grid; 
         grid-template-columns: 1fr 1fr 1fr;
-        width: 100%;
+        width: 85vw;
 
         .column {
-            background-color: pink;
             float: left;
             height: 100%;
-            margin-right: 100px;
-        }
+            margin-right: 40px;
+            padding: 10px 0 0 10px;
 
-        .column > h2 {
-            width: 100%;
-            text-decoration: underline;
-            text-align: center;
-        }
+            &:last-child {
+                margin-right: 0px;
+            }
+            
 
-        .add-task {
-            width: 100px;
-            height: 70px;
-            text-align: center;
-            border: none;
-            border-radius: 25px;
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-            transition: ease 0.4s;
-            background-color: rgb(33, 203, 224);
-            cursor: pointer;
-
-            &:hover {
-                background-color: rgba(113, 184, 202);
-                transition: ease 0.4s; 
+            h2 {
+                text-decoration: underline;
             }
 
-            &:active {
-                #taskform {
-                    display: block;
+            .todo {
+                background-color: red;
+                position: relative;
+                margin: 0 auto;
+                padding: 15px;
+                height: 60px; 
+                width: 200px;
+                border-radius: 15px;
+
+                p {
+                    font-size: 2em;
+                    text-align: center;
+                }
+                
+                .close-task {
+                    position: absolute;
+                    font-size: 3em;
+                    top: 0px;
+                    left: 180px;
+                    color: black;
+                    cursor: pointer;
                 }
             }
-        }
 
-        .todo-task {
-            p {
-                font-size: 2em;
-                background-color: white;
-                border-radius: 15px;
+            .add-task {
+                display: block;
+                width: 140px;
+                height: 40px;
                 text-align: center;
-            }
+                border: none;
+                border-radius: 15px;
+                margin: 0 auto;
+                transition: ease 0.4s;
+                cursor: pointer;
     
-            .close {
-                float: right;
-                background-color: none;
-                color: black;
-                height: 10px;
-                width: 10px;
-                font-size: 10px;
+                &:hover {
+                    transition: ease 0.4s; 
+                }
+    
+                &:active {
+                    #taskform {
+                        display: block;
+                    }
+                }
+            }
+
+            .completionCard {
+                width: 100%;
+                height: auto;
+                margin-left: -30px;
             }
         }
 
@@ -88,7 +100,7 @@
             grid-template-rows: 1fr;
             grid-template-areas: "taskform tasklist";
 
-            #empty {
+            .empty {
                 grid-area: tasklist; 
             }  
 
@@ -102,22 +114,97 @@
                 padding: 50px;
                 border: none;
             }
-        
-        
         }
-
-    
     } 
 }
 
+/* The Modal (background) */
+.task-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 
-.kanban-columns:not(:last-child) {
-    margin-right: 2%;
-}
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0} 
+        to {top:0; opacity:1}
+    }
+
+    @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    &:hover {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        color: white;
+    }
+    
+    .modal-grid {
+        padding: 2px 16px;
+    }
+}   
 
 @media screen and (max-width: 600px) {
-    .k-board {
-      width: 100%;
+    .kanban-board {
+        width: 100%; 
+
+        .k-board {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr;
+    
+            .column {
+                margin-top: 10px;
+    
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+        } 
     }
-  }
+}
 

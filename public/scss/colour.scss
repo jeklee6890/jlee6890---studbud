@@ -1,29 +1,71 @@
 body {
     background-color: white;
     transition: 0.4s;
-
-    // button {
-    //     background-color: black;
-    //     transition: 0.4s;
-        
-    //     &:hover {
-    //         transform: scale(1.1);
-    //     }
-    // }
     
+    .column {
+        background-color: #B3B3B3;
+
+        .add-task {
+            background-color: #B0CEDF;
+
+            &:hover {
+                background-color: #7CBABC;
+            }
+        }
+    }
+
+    .completionCard {
+        background-color: white;
+    }
+
+    #sidebar {
+        background-color: #828282;
+
+        .watch {
+            background-color: #BEDC97;
+        }
+
+        .toggle-button {
+            span {
+                background: black;
+            }
+        }
+    }
+
+    .task-modal {
+        .modal-header {
+            background-color: #7CBABC;
+        }
+    }
 }
 
 body.dark {
     background-color: black;
     transition: 0.4s;
 
-    // button {
-    //     background-color: white;
-    //     transition: 0.4s;
-    //     &:hover {
-    //         transform: scale(1.1);
-    //     }
-    // }
+    .column {
+        background-color: #828282;
+
+        .add-task {
+            background-color: #5C445D;
+
+            &:hover {
+                background-color: #C29E69;
+            }
+        }
+    }
+
+    .completionCard {
+        background-color: black;
+    }
+
+    #sidebar {
+        .toggle-button {
+            span {
+                background: white;
+            }
+        }
+    }
 }
 
 // colour palette (cave) - dark mode

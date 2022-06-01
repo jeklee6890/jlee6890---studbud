@@ -14,14 +14,14 @@
 
 <body class="app-container">
 
-    <!-- <nav class="side-nav">
+    <nav class="side-nav">
         <ul class="nav-links">
             <li class="nav-item"><a href="../tasklist/tasklist.html" class="active">Tasks</a></li>
             <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
             <li class="nav-item"><a href="../account/account.html">Account Settings</a></li>
             <li class="nav-item"><a href="../stopwatch/stopwatch.html">Stopwatch</a></li>
         </ul>
-    </nav> -->
+    </nav>
 
     <heading id="kanban"> 
         <h1> Kanban Board </h1>
@@ -29,62 +29,76 @@
     
 
     <main class="kanban-board"> 
-        <div id="k-board" class="k-board">
-            <div class="column">
-              <h2>Column 1</h2>
-              <button class="add-task">+ Add Task</button>
-            </div>
-
-            <div class="column">
-              <h2>Column 2</h2>
-              <button class="add-task">+ Add Task</button>
-            </div>
-
-            <div class="column">
-              <h2>Column 3</h2>
-              <button class="add-task">+ Add Task</button>
-            </div>
-
-            <div class="todo-task" draggable="true">
-                <p>Buy Pizza</p>
-                <button class="close">
-                    <i class="fa-solid fa-x"> </i>
-                </button>
-            </div>
-        </div>
-
-
-        <!-- <div id="task-grid">
-            <form id="taskform">
-                <label for="task">Task:</label>
-                <input type="text" name="task" id="taskInput" required>
-
-                <label for="dueDate">Due Date: </label>
-                <input type="date" name="dueDate" id="dueDateInput">
-
-                <label for="completionTime">Completion Time: </label>
-                <input type="time" name="completionTime" id="completionTimeInput">
-
-                <label for="estimatedTime">Estimated completion time (in mins):</label>
-                <input type="number" name="estimatedTime" id="estimatedTimeInput">
-
-                <label for="priority">Task Priority:</label>
-                <select name="prority" id="priorityInput">
-                    <option value="">Select one</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                </select>
-                <br>
-
-                <button type="submit" class="submit">Submit</button>
-            </form>
+        <main class="kanban-board"> 
+            <div id="k-board" class="k-board">
     
-            <div id="empty">
-                <p id="emptyList">You have not added any tasks yet.</p>
-                <ul></ul>
+              <div class="task-modal">
+                    <div class="modal-content">
+    
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>Add New Task</h2>
+                        </div>
+    
+                           <div id="modal-grid">
+                                <form id="taskform">
+                                    <label for="task">Task:</label>
+                                    <input type="text" name="task" id="taskInput" required>
+                                    <br>
+    
+                                    <label for="estimatedTime">Estimated completion time (in mins):</label>
+                                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                                    <br>
+    
+                                    <label for="priority">Task Priority:</label>
+                                    <select name="prority" id="priorityInput">
+                                        <option value="">Select one</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                    <br>
+    
+                                    <button type="submit" class="submit" id="submit">Submit</button>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+              
+                <div class="column">
+                  <h2>Column 1</h2>
+    
+                  <div class="empty">
+                    <p class="emptyList">You have not added any tasks yet.</p>
+                    <ul></ul>
+                  </div>
+    
+                  <button class="add-task">+ Add Task</button>
+                </div>
+    
+                <div class="column">
+                  <h2>Column 2</h2>
+                  
+                    <div class="empty">
+                      <p class="emptyList">You have not added any tasks yet.</p>
+                      <ul></ul>
+                    </div>
+                    
+                    <button class="add-task">+ Add Task</button>
+                </div>
+    
+                <div class="column">
+                  <h2>Column 3</h2>
+                  <div class="empty">
+                      <p class="emptyList">You have not added any tasks yet.</p>
+                      <ul></ul>
+                  </div>
+    
+                    <button class="add-task">+ Add Task</button>
+                </div>
+    
+      
             </div>
-        </div> -->
     </main>
 
 

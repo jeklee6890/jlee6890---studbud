@@ -43,10 +43,11 @@ const progressContainer = document.querySelector(".progress-container");
 const title = document.querySelector("#title");
 const cover = document.querySelector("#cover");
 
-// song titles 
-const songs = ['music'];
 
-let songIndex = 0;
+// song titles 
+const songs = ['music', 'ukelele'];
+
+let songIndex = 1;
 
 // initially load song
 loadSong(songs[songIndex]);
@@ -84,8 +85,9 @@ audio.addEventListener('ended', nextSong);
 // custom functions 
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `music/${song}.mp3`;
-  cover.src = `assets/${song}.jpg`;
+
+  audio.src = "music.mp3";
+  cover.src = `assets/${cover}.jpg`;
 }
 
 // Play song
