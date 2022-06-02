@@ -1,23 +1,31 @@
+
+
 // here i am creating the pop-up modal when the user clicks the 'add-task' button
 var modal = document.querySelector(".task-modal");
-var btn = document.querySelector(".add-task");
+var btn = document.getElementsByClassName("add-task");
 
 // retrieving the <span> element which will close the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close");
 
 
 var taskListArray = [];
 
 // this function will open the modal and allow the user to make a new task 
 // when they click on the 'add-task' button
-btn.onclick = function() {
-  modal.style.display = "block";
+for (var i = 0; i < btn.length; i++) {
+  btn[i].addEventListener("click", function () {
+    modal.style.display = "block";
+  });
 }
 
-// this function will close the modal when they click on the 'x' button
-span.onclick = function() {
-  modal.style.display = "none";
+// the modal when they click on the 'x' button
+for (var i = 0; i < span.length; i++) {
+  span[i].addEventListener("click", function () {
+    modal.style.display = "block";
+  });
 }
+
+
 // Bind an event to the submit button to capture information from the form and store it into localStorage.
 let subButton = document.getElementById("submit");
 
@@ -267,6 +275,13 @@ function dragDrop() {
 
 }
 
+function show() {
+  document.getElementById("sidebar").style.marginLeft = "500px";
+}
+
+function hide() {
+  document.getElementById("sidebar").style.marginLeft = "0px";
+}
 
 
 

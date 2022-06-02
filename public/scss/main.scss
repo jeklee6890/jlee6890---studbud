@@ -2,11 +2,12 @@
     margin: 2%;
 }
 
-@import "homepage.scss";
 
 @import "_typography.scss"; 
 
-@import "stopwatch.scss";
+@import "colour.scss";
+
+@import "homepage.scss";
 
 @import "tasklist.scss";
 
@@ -14,5 +15,6 @@
 
 @import "account.scss";
 
-@import "colour.scss";
+
+
 

@@ -2,6 +2,12 @@ body {
     background-color: white;
     transition: 0.4s;
     
+    .homepage {
+        .daily-reminder .activity {
+            border-color: black;
+        }
+    }
+
     .column {
         background-color: #B3B3B3;
 
@@ -22,7 +28,18 @@ body {
         background-color: #828282;
 
         .watch {
-            background-color: #BEDC97;
+            background-color: #256945;
+
+            #timer-select {
+                background-color: white;
+            }
+
+            .controls {
+
+                .main-buttons {
+                    background-color: white;
+                }
+            }
         }
 
         .toggle-button {
@@ -33,8 +50,19 @@ body {
     }
 
     .task-modal {
+        background-color: black; /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+        .modal-content {
+            background-color: white;
+        }
+        
         .modal-header {
             background-color: #7CBABC;
+        }
+
+        .close {
+            color: white;
         }
     }
 }
@@ -42,6 +70,12 @@ body {
 body.dark {
     background-color: black;
     transition: 0.4s;
+
+    .homepage {
+        .daily-reminder .activity {
+            border-color: white;
+        }
+    }
 
     .column {
         background-color: #828282;
@@ -60,10 +94,42 @@ body.dark {
     }
 
     #sidebar {
+        background-color: #B2B2B2;
+
+        .watch {
+            background-color: #EAC0C3;
+
+            #timer-select {
+                background-color: black;
+            }
+
+            .controls {
+
+                .main-buttons {
+                    background-color: black;
+                }
+            }
+        }
+
         .toggle-button {
             span {
                 background: white;
             }
+        }
+    }
+
+    .task-modal {
+
+        .modal-content {
+            background-color: black;
+        }
+        
+        .modal-header {
+            background-color: #C29E69;
+        }
+
+        .close {
+            color: black;
         }
     }
 }

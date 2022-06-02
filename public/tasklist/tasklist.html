@@ -12,20 +12,46 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
 </head>
 
-<body class="app-container">
-
-    <nav class="side-nav">
-        <ul class="nav-links">
-            <li class="nav-item"><a href="../tasklist/tasklist.html" class="active">Tasks</a></li>
-            <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
-            <li class="nav-item"><a href="../account/account.html">Account Settings</a></li>
-            <li class="nav-item"><a href="../stopwatch/stopwatch.html">Stopwatch</a></li>
-        </ul>
-    </nav>
+<body class="app-container dark">
 
     <heading id="kanban"> 
         <h1> Kanban Board </h1>
     </heading>
+    <div id="sidebar">
+        <div class="toggle-button" onclick="show()">
+            <span></span>
+            <span></span>
+        </div>
+
+        <button class="close-button" onclick="hide()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <nav class="side-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="../tasklist/tasklist.html" class="active">Tasks</a></li>
+                <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
+            </ul>
+        </nav>
+
+        <div class="watch">
+            <select name="timer-select" id="timer-select">
+                <option value="Flow" id="flow-select">Flow Time Tracker</option>
+                <option value="Green" id="green-select">Green Time Tracker</option>
+            </select>
+            
+            <div class="time">
+                <p id="elapsed">Time elapsed since most <br> recent flow started:</p>
+                <p id="timer">00:00:00</p>
+            </div>
+    
+            <div class="controls">
+                <button class="main-buttons" id="start">Start</button>
+                <button class="main-buttons" id="stop">Stop</button>
+                <button class="main-buttons" id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
     
 
     <main class="kanban-board"> 
@@ -64,9 +90,11 @@
                             </div>
                     </div>
                 </div>
+
+        
               
                 <div class="column">
-                  <h2>Column 1</h2>
+                  <h2>Not Started</h2>
     
                   <div class="empty">
                     <p class="emptyList">You have not added any tasks yet.</p>
@@ -77,7 +105,7 @@
                 </div>
     
                 <div class="column">
-                  <h2>Column 2</h2>
+                  <h2>In Progress</h2>
                   
                     <div class="empty">
                       <p class="emptyList">You have not added any tasks yet.</p>
@@ -88,7 +116,7 @@
                 </div>
     
                 <div class="column">
-                  <h2>Column 3</h2>
+                  <h2>Completed</h2>
                   <div class="empty">
                       <p class="emptyList">You have not added any tasks yet.</p>
                       <ul></ul>

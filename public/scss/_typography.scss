@@ -3,11 +3,51 @@ body {
     color: black;
     font-family: 'Dosis', sans-serif;
 
+    .homepage {
+        h2 {
+            text-decoration: underline;
+        }
+    }       
+
     .add-task {
         font-size: 1em;
         color: black;
     
         &:hover {
+            color: white;
+        }
+    }
+
+    .watch {
+        #timer-select {
+            color: #256945;
+            font-size: 0.8em;
+        }
+
+        .time {
+            color: white;
+           
+            #elapsed {
+                font-size: 1.3em;
+            }
+
+            #timer {
+                font-size: 1.6em;
+                font-weight: bold;
+            }
+        }
+
+        .controls {
+            .main-buttons {
+                color: #256945;
+            }
+        }
+    }
+
+    .task-modal {
+        color: black;
+        
+        .modal-header {
             color: white;
         }
     }
@@ -17,11 +57,50 @@ body.dark {
     color: white;
     font-family: 'Dosis', sans-serif;
 
+    .homepage {
+        .daily-reminder {
+            text-decoration: underline;
+        }
+    }  
+
     .add-task {
         font-size: 1em;
         color: white;
     
         &:hover {
+            color: black;
+        }
+    }
+
+    .watch {
+        #timer-select {
+            color: #EAC0C3;
+        }
+
+        .controls {
+            .main-buttons {
+                color: #EAC0C3;
+            }
+        }
+
+        .time {
+            color: black;
+           
+            #elapsed {
+                font-size: 1.3em;
+            }
+
+            #timer {
+                font-size: 1.6em;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .task-modal {
+        color: white;
+        
+        .modal-header {
             color: black;
         }
     }
