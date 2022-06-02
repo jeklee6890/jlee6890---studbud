@@ -6,6 +6,10 @@ body {
         .daily-reminder .activity {
             border-color: black;
         }
+
+        #enter {
+            background-color: #B2B2B2;
+        }
     }
 
     .column {
@@ -74,6 +78,10 @@ body.dark {
     .homepage {
         .daily-reminder .activity {
             border-color: white;
+        }
+
+        #enter {
+            background-color: #828282;
         }
     }
 

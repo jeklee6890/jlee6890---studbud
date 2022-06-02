@@ -7,6 +7,10 @@ body {
         h2 {
             text-decoration: underline;
         }
+
+        #enter {
+            color: black;
+        }
     }       
 
     .add-task {
@@ -58,8 +62,12 @@ body.dark {
     font-family: 'Dosis', sans-serif;
 
     .homepage {
-        .daily-reminder {
+        h2 {
             text-decoration: underline;
+        }
+
+        #enter {
+            color: white;
         }
     }  
 
