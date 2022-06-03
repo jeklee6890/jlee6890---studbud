@@ -72,6 +72,18 @@
                 width: 100%;
                 height: auto;
                 margin-left: -30px;
+                border-radius: 10px;
+                padding: 5px;
+
+                span {
+                    margin-left: -5%;
+                }
+            }
+
+            .remove {
+                position: relative;
+                border: none;
+                left: 90%;
             }
         }
 

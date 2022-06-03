@@ -4,12 +4,18 @@ body {
     font-family: 'Dosis', sans-serif;
 
     .homepage {
-        h2 {
-            text-decoration: underline;
+        .daily-reminder .activity {
+            h2 {
+                text-decoration: underline;
+            }
         }
 
         #enter {
             color: black;
+        }
+
+        p {
+            font-size: 2em;
         }
     }       
 

@@ -17,6 +17,11 @@ Ultimately, my conceptualisation of StudBud delivers the main features I intende
 While this web app is only a university assignment, I would also greatly appreciate any advice and feedback, particularly in regards to the limitations mentioned above. StudBud is definitely a project I would love to expand upon, especially without the presence of deadlines. 
 
 ## References 
+https://mentalhealthmatch.com/articles/anxiety/inspiring-mental-health-quotes
+Drew video from Slack
+https://www.w3schools.com/howto/howto_css_modals.asp
+https://www.youtube.com/watch?v=QTHRWGn_sJw&t=1376s
+
 
 **bold**
 

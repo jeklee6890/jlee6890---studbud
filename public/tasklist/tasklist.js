@@ -155,7 +155,6 @@ function renderItems() {
     completionCard.setAttribute("class", "completionCard");
 
     let itemName = document.createElement('span');
-    itemName.setAttribute('class', 'card'); // We can set classes so CSS can target it nicely later.
     itemName.innerText = item.itemName; // And we just put the text into this span, and nothing else.
 
     let completion = document.createElement("span");
@@ -186,10 +185,10 @@ function renderItems() {
     // Add the name and remove button to the li
 
     itemLi.appendChild(completionCard);
+    completionCard.appendChild(itemRemove);
     completionCard.appendChild(itemName);
     completionCard.appendChild(completion);
     completionCard.appendChild(file);
-    completionCard.appendChild(itemRemove);
 
     // Add the li to the ul.
     itemUl.appendChild(itemLi);
