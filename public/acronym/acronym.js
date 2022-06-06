@@ -12,6 +12,39 @@ buttonStop.addEventListener('click', stopTimer);
 buttonReset.addEventListener('click', resetTimer);
 
 
+// here i am creating the pop-up modal when the user clicks the 'add-task' button
+var modal = document.querySelector(".acronym-modal");
+var btn = document.getElementsByClassName("add-acronym");
+
+// retrieving the <span> element which will close the modal
+var span = document.getElementsByClassName("close");
+
+
+// this function will open the modal and allow the user to make a new task 
+// when they click on the 'add-task' button
+for (var i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", function () {
+      modal.style.display = "block";
+    });
+  }
+  
+  // the modal when they click on the 'x' button
+  for (var i = 0; i < span.length; i++) {
+    span[i].addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  }
+  
+  let submit = document.querySelector(".submit");
+  
+  submit.onclick = function() {
+      modal.style.display = "none";
+  }
+
+
+
+
+
 function timer() {
     seconds++;
 

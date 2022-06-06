@@ -22,30 +22,6 @@
                 text-decoration: underline;
             }
 
-            .todo {
-                background-color: red;
-                position: relative;
-                margin: 0 auto;
-                padding: 15px;
-                height: 60px; 
-                width: 200px;
-                border-radius: 15px;
-
-                p {
-                    font-size: 2em;
-                    text-align: center;
-                }
-                
-                .close-task {
-                    position: absolute;
-                    font-size: 3em;
-                    top: 0px;
-                    left: 180px;
-                    color: black;
-                    cursor: pointer;
-                }
-            }
-
             .add-task {
                 display: block;
                 width: 140px;
@@ -76,7 +52,7 @@
                 padding: 5px;
 
                 span {
-                    top: -80px;
+                    top: -140px;
                 }
             }
 
@@ -156,6 +132,7 @@
         float: right;
         font-size: 28px;
         font-weight: bold;
+        color: black;
     }
 
     &:hover {
@@ -179,22 +156,27 @@
     }
 }   
 
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 800px) {
     .kanban-board {
         width: 100%; 
 
         .k-board {
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex; 
+            flex-flow: row wrap;
     
             .column {
-                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 100%;
+                height: auto;
+                padding-bottom: 5%;
     
                 &:last-child {
-                    margin-right: 0px;
+                    margin-bottom: 0px;
                 }
             }
         } 
     }
 }
+
 

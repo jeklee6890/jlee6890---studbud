@@ -22,6 +22,14 @@ body {
                 background-color: #7CBABC;
             }
         }
+
+        .add-acronym {
+            background-color: #B0CEDF;
+
+            &:hover {
+                background-color: #7CBABC;
+            }
+        }
     }
 
     .completionCard {
@@ -69,6 +77,23 @@ body {
             color: white;
         }
     }
+
+    .acronym-modal {
+        background-color: black; /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+        .acronym-modal-content {
+            background-color: white;
+        }
+        
+        .modal-header {
+            background-color: #7CBABC;
+        }
+
+        .close {
+            color: white;
+        }
+    }
 }
 
 body.dark {
@@ -88,7 +113,15 @@ body.dark {
     .column {
         background-color: #828282;
 
-        .add-task {
+        .add-task{
+            background-color: #5C445D;
+
+            &:hover {
+                background-color: #C29E69;
+            }
+        }
+
+        .add-acronym {
             background-color: #5C445D;
 
             &:hover {
@@ -129,6 +162,21 @@ body.dark {
     .task-modal {
 
         .modal-content {
+            background-color: black;
+        }
+        
+        .modal-header {
+            background-color: #C29E69;
+        }
+
+        .close {
+            color: black;
+        }
+    }
+
+    .acronym-modal {
+
+        .acronym-modal-content {
             background-color: black;
         }
         

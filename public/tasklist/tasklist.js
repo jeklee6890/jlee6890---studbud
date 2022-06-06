@@ -39,9 +39,17 @@ for (var i = 0; i < btn.length; i++) {
 // the modal when they click on the 'x' button
 for (var i = 0; i < span.length; i++) {
   span[i].addEventListener("click", function () {
-    modal.style.display = "block";
+    modal.style.display = "none";
   });
 }
+
+let submit = document.querySelector(".submit");
+
+submit.onclick = function() {
+    modal.style.display = "none";
+}
+
+
 
 
 // Bind an event to the submit button to capture information from the form and store it into localStorage.
@@ -85,29 +93,6 @@ subButton.addEventListener("click", function() {
 });
 
 
-// here i am creating the pop-up modal when the user clicks the 'add-task' button
-var modal = document.querySelector(".task-modal");
-var btn = document.querySelector(".add-task");
-
-// retrieving the <span> element which will close the modal
-var span = document.getElementsByClassName("close")[0];
-
-// this function will open the modal and allow the user to make a new task 
-// when they click on the 'add-task' button
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// this function will close the modal when they click on the 'x' button
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-let submit = document.querySelector(".submit");
-
-submit.onclick = function() {
-    modal.style.display = "none";
-}
 
 
 // code for drag-and-drop feature 

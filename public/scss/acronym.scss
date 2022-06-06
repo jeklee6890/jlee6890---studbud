@@ -89,3 +89,164 @@
         }
     }
 }
+
+.acronym-board {
+    display: flex;
+    margin: -20px auto;
+
+    .a-board {
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 90vw;
+
+        /* The Modal (background) */
+        .acronym-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; /* Sit on top */
+            padding-top: 200px; /* Location of the box */
+            left: 0;
+            top: 0;
+            margin: -50px 0 0 -50px;
+            width: 110%; /* Full width */
+            height: 110%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+
+            /* Modal Content */
+            .acronym-modal-content {
+                position: relative;
+                margin: 0 auto;
+                padding: 0;
+                border: 1px solid #888;
+                width: 60%;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                -webkit-animation-name: animatetop;
+                -webkit-animation-duration: 0.4s;
+                animation-name: animatetop;
+                animation-duration: 0.4s;
+
+                .modal-header {
+                    padding: 2px 16px;
+
+                    /* The Close Button */
+                    .close {
+                        float: right;
+                        font-size: 28px;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: #000;
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+
+                        &:focus {
+                            color: #000;
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .first {
+                    position: relative;
+                }
+
+                .remaining {
+                    display: inline-block;
+                    position: relative;
+                    left: 50%;
+                    top: -10%;
+                }
+
+                .modal-grid {
+                    padding: 2px 16px;
+                }
+            }
+
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+                from {top:-300px; opacity:0} 
+                to {top:0; opacity:1}
+            }
+
+            @keyframes animatetop {
+                from {top:-300px; opacity:0}
+                to {top:0; opacity:1}
+            }
+        }                      
+
+        .column {
+            float: left;
+            height: 100%;
+            margin-right: 40px;
+            padding: 10px 0 0 10px;
+
+            h2 {
+                text-decoration: underline;
+            }
+
+            .add-acronym {
+                display: block;
+                width: 140px;
+                height: 40px;
+                text-align: center;
+                border: none;
+                border-radius: 15px;
+                margin: 0 auto;
+                transition: ease 0.4s;
+                cursor: pointer;
+    
+                &:hover {
+                    transition: ease 0.4s; 
+                }
+    
+                &:active {
+                    #taskform {
+                        display: block;
+                    }
+                }
+            }
+
+            .completionCard {
+                width: 100%;
+                height: auto;
+                margin-left: -30px;
+                border-radius: 10px;
+                padding: 5px;
+
+                span {
+                    top: -140px;
+                }
+            }
+
+            .remove {
+                position: relative;
+                border: none;
+                top: -30px;
+                left: 50%;
+            }
+        }
+    } 
+}
+
+
+@media screen and (max-width: 800px) {
+    .acronym-board {
+        width: 100%; 
+
+        .a-board {
+            display: flex; 
+            flex-flow: row wrap;
+    
+            .column {
+                margin-bottom: 10px;
+                width: 100%;
+    
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+        } 
+    }
+}
