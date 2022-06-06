@@ -1,4 +1,22 @@
+var lightImage = [
+  "../light-assets/bird.png",
+  "../light-assets/cloud.png",
+  "../light-assets/droplet.png",
+  "../light-assets/flower.png",
+  "../light-assets/leaf.png",
+  "../light-assets/trees.png",
+  "../light-assets/wave.png"
+]
 
+var darkImage = [
+  "../dark-assets/bird.png",
+  "../dark-assets/cloud.png",
+  "../dark-assets/droplet.png",
+  "../dark-assets/flower.png",
+  "../dark-assets/leaf.png",
+  "../dark-assets/trees.png",
+  "../dark-assets/wave.png"
+]
 
 // here i am creating the pop-up modal when the user clicks the 'add-task' button
 var modal = document.querySelector(".task-modal");
@@ -106,6 +124,7 @@ todos.forEach((todo) => {
 
 
 
+
 ////////////////////////////////////////
 // Now we have some custom functions to handle tasks we have to do in order to make all this work.
 ////////////////////////////////////////
@@ -143,12 +162,7 @@ function renderItems() {
   items.forEach(function(item) {
 
     // Create a li DOM element to hold each item
-    let itemLi = document.createElement('p');
-
-    // Now we could just set innerText or innerHTML to hold the item name, but if we want to have more than one variable displayed, this gets messy fast. Don't do this, it's poor practice and the code ends up clumsy and hard to maintain.
-    // itemLi.innerHTML = "<strong>" + item.itemName + "</strong>";
-
-    // Instead we create more elements to separate things using proper markup.
+    let itemLi = document.createElement('p'); 
 
     // Create a span element to hold the name of the item.
     let completionCard = document.createElement("div");
@@ -157,9 +171,10 @@ function renderItems() {
     let itemName = document.createElement('span');
     itemName.innerText = item.itemName; // And we just put the text into this span, and nothing else.
 
-    let completion = document.createElement("span");
+    // let priority = document.createElement("span");
+    // completion.innerText = 
 
-    let file = document.createElement("br");
+    let space = document.createElement("br");
     
 
     // Add an element to represent the remove button
@@ -182,13 +197,20 @@ function renderItems() {
 
     });
 
-    // Add the name and remove button to the li
+    var imgGenerator = Math.floor(Math.random() * lightImage.length);
+    let newImage = new Image(100, 100);
+    newImage.src = lightImage[imgGenerator];
 
+    
+    itemLi.appendChild(completionCard);
+    completionCard.appendChild(newImage);
     itemLi.appendChild(completionCard);
     completionCard.appendChild(itemRemove);
     completionCard.appendChild(itemName);
-    completionCard.appendChild(completion);
-    completionCard.appendChild(file);
+    // completionCard.appendChild(completion);
+    completionCard.appendChild(space);
+
+    
 
     // Add the li to the ul.
     itemUl.appendChild(itemLi);
@@ -281,8 +303,6 @@ function show() {
 function hide() {
   document.getElementById("sidebar").style.marginLeft = "0px";
 }
-
-
 
 
 // this event listener is being added to the "add column" button

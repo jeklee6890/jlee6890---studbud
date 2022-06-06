@@ -1,25 +1,24 @@
 // constants for dark and light mode 
-const darkButton = document.getElementById("dark");
-const lightButton = document.getElementById("light");
+const modeButton = document.getElementById("mode-switch");
 
 const darkMode = () => {
-  document.body.classList.toggle("dark");
+  document.body.classList.toggle("dark-button");
 }
 
-darkButton.addEventListener("click", () => {
+const lightMode = () => {
+  document.body.classList.toggle("light-button");
+}
+
+modeButton.addEventListener("click", () => {
   setDarkMode = localStorage.getItem("dark");
 
   // using localStorage to store the SCSS style of the page i.e. if the page is on darkMode or lightMode
   if(setDarkMode !== "on") {
     darkMode();
     setDarkMode = localStorage.setItem("dark", "on");
-    darkButton.style.fontWeight = "bold";
-    lightButton.style.fontWeight = "normal";
   } else {
-    darkMode();
+    lightMode();
     setDarkMode = localStorage.setItem("dark", "null");
-    darkButton.style.fontWeight = "normal";
-    lightButton.style.fontWeight = "bold";
   } 
 });
 
@@ -27,6 +26,8 @@ darkButton.addEventListener("click", () => {
 let setDarkMode = localStorage.getItem("dark");
 if(setDarkMode === "on") {
   darkMode();
+} else {
+  lightMode;
 }
 
 
