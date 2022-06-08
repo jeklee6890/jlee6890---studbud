@@ -19,7 +19,7 @@ var modal = document.querySelector(".acronym-modal");
 var btn = document.getElementsByClassName("add-acronym");
 
 // retrieving the <span> element which will close the modal
-var span = document.getElementsByClassName("close");
+var span = document.getElementsByClassName("toggle-close");
 
 
 

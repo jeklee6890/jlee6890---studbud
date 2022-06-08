@@ -1,14 +1,13 @@
 // constants for dark and light mode 
 const modeButton = document.getElementById("mode-switch");
 
-const darkMode = () => {
-  document.body.classList.toggle("dark");
-  modeButton.classList.add("dark-button");
-}
 
-const lightMode = () => {
-  document.body.classList.toggle("light");
-  modeButton.classList.add("light-button");
+// checking if darkMode is on when the page is refreshed based on localStorage
+let setDarkMode = localStorage.getItem("dark");
+if(setDarkMode === "on") {
+  darkMode();
+} else {
+  lightMode;
 }
 
 modeButton.addEventListener("click", () => {
@@ -23,14 +22,6 @@ modeButton.addEventListener("click", () => {
     setDarkMode = localStorage.setItem("dark", "null");
   } 
 });
-
-// checking if darkMode is on when the page is refreshed based on localStorage
-let setDarkMode = localStorage.getItem("dark");
-if(setDarkMode === "on") {
-  darkMode();
-} else {
-  lightMode;
-}
 
 
 
@@ -83,9 +74,19 @@ audio.addEventListener('ended', nextSong);
 
 
 
-
-
 // custom functions 
+function darkMode() {
+  document.body.classList.toggle("dark");
+  modeButton.classList.remove("light-button");
+  modeButton.classList.add("dark-button");
+}
+
+function lightMode() {
+  document.body.classList.toggle("light");
+  modeButton.classList.remove("dark-button");
+  modeButton.classList.add("light-button");
+}
+
 function loadSong(song) {
   title.innerText = song;
 
@@ -167,7 +168,7 @@ var modal = document.querySelector(".acronym-modal");
 var btn = document.getElementsByClassName("add-acronym");
 
 // retrieving the <span> element which will close the modal
-var span = document.getElementsByClassName("close");
+var span = document.getElementsByClassName("toggle-close");
 
 
 
@@ -210,8 +211,8 @@ for (var i = 0; i < btn.length; i++) {
         hours = "0" + hours;
     }
 
-    timeElement.innerText = `${hours}:${mins}:${secs}` ;
-}
+    timeElement.innerText = `${hours}:${mins}:${secs}`;
+  }
 
 
 

@@ -111,13 +111,46 @@ body {
         }
     }
 
+    .settings {
+        .general {
+            background-color: #B2B2B2;
+        }
+    
+        .preferences {
+            background-color: #B2B2B2;
+        }
+
+        .settings-save {
+            background-color: #B0CEDF;
+
+            &:hover {
+                background-color: #7CBABC;
+            }
+        }
+    }
+
     #modes {
         .light-button {
             background-color: white;
             border-color: black;
         }
     }
+
+    .music-container {
+        background-color: #BEDC97;
+
+        .action-btn {
+            background-color: #BEDC97;
+
+            i {
+                color: white;
+            }
+        }
+    }
 }
+
+
+
 
 body.dark {
     background-color: black;
@@ -236,10 +269,40 @@ body.dark {
         }
     }
 
+    .settings {
+        .general {
+            background-color: #828282;
+        }
+    
+        .preferences {
+            background-color: #828282;
+        }
+
+        .settings-save{
+            background-color: #5C445D;
+
+            &:hover {
+                background-color: #C29E69;
+            }
+        }
+    }
+
     #modes {
         .dark-button {
             background-color: black;
             border-color: white;
+        }
+    }
+
+    .music-container {
+        background-color: #BE9ABB;
+
+        .action-btn {
+            background-color: #BE9ABB;
+
+            i {
+                color: black;
+            }
         }
     }
 }

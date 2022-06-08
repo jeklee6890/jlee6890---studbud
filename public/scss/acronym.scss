@@ -12,11 +12,18 @@
     transition: 0.5s;
     z-index: 2;
 
-    .profile {
-        float: left;
-        left: -100px;
+    .toggle-close {
+        font-size: 50px;
+        cursor: pointer;
+        margin-left: 5%;
     }
-    
+
+    .profile {
+        position: absolute;
+        left: 50px;
+        margin-top: 50px;
+    }
+
     .sidebar-intro {
         position: absolute;
         left: 50%;
@@ -45,12 +52,6 @@
         }
     }
 
-    .toggle-close {
-        font-size: 50px;
-        cursor: pointer;
-        margin-left: 5%;
-    }
-
     .side-nav {
         position: fixed;
         width: inherit;
@@ -76,7 +77,7 @@
     .watch {
         width: 80%;
         height: 21vw;
-        margin: 18vw auto 0 auto;
+        margin: 15vw auto 0 auto;
 
         #timer-select {
             border: none;

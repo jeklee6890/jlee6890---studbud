@@ -12,6 +12,24 @@
     transition: 0.5s;
     z-index: 2;
 
+    .toggle-close {
+        font-size: 50px;
+        cursor: pointer;
+        margin-left: 5%;
+    }
+
+    .profile {
+        position: absolute;
+        left: 50px;
+        margin-top: 50px;
+    }
+
+    .sidebar-intro {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+    }
+
     .timer-side {
         list-style: none;
     }
@@ -32,12 +50,6 @@
             transform: rotate(-45deg);
             margin-top: 25px;
         }
-    }
-
-    .toggle-close {
-        font-size: 50px;
-        cursor: pointer;
-        margin-left: 5%;
     }
 
     .side-nav {
@@ -65,7 +77,7 @@
     .watch {
         width: 80%;
         height: 21vw;
-        margin: 18vw auto 0 auto;
+        margin: 15vw auto 0 auto;
 
         #timer-select {
             border: none;
