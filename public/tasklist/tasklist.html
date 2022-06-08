@@ -18,14 +18,15 @@
         <h1> Kanban Board </h1>
     </heading>
     <div id="sidebar">
-        <div class="toggle-button" onclick="show()">
+        <div class="toggle-open" onclick="show()">
             <span></span>
             <span></span>
         </div>
 
-        <button class="close-button" onclick="hide()">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+        <span class="toggle-close" onclick="hide()">&times;</span>
+
+        <p class="welcome">Welcome jlee6890!</p>
+        <button class="account">Account Settings</button>
 
         <nav class="side-nav">
             <ul class="nav-links">
@@ -84,7 +85,7 @@
                                     </select>
                                     <br>
     
-                                    <button type="submit" class="submit" id="submit">Submit</button>
+                                    <button type="button" class="submit" id="submit">Submit</button>
                                 </form>
                             </div>
                     </div>

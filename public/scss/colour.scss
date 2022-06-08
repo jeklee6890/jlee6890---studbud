@@ -2,6 +2,14 @@ body {
     background-color: white;
     transition: 0.4s;
     
+    #sidebar {
+        .side-nav {
+            .nav-item {
+                background-color: white;
+            }
+        }
+    }
+    
     .homepage {
         .daily-reminder .activity {
             border-color: black;
@@ -54,7 +62,7 @@ body {
             }
         }
 
-        .toggle-button {
+        .toggle-open {
             span {
                 background: black;
             }
@@ -67,6 +75,14 @@ body {
 
         .modal-content {
             background-color: white;
+
+            .submit {
+                background-color: #B0CEDF;
+    
+                &:hover {
+                    background-color: #7CBABC;
+                }
+            }
         }
         
         .modal-header {
@@ -94,12 +110,27 @@ body {
             color: white;
         }
     }
+
+    #modes {
+        .light-button {
+            background-color: white;
+            border-color: black;
+        }
+    }
 }
 
 body.dark {
     background-color: black;
     transition: 0.4s;
 
+    #sidebar {
+        .side-nav {
+            .nav-item {
+                background-color: black;
+            }
+        }
+    }
+    
     .homepage {
         .daily-reminder .activity {
             border-color: white;
@@ -152,7 +183,7 @@ body.dark {
             }
         }
 
-        .toggle-button {
+        .toggle-open {
             span {
                 background: white;
             }
@@ -163,6 +194,14 @@ body.dark {
 
         .modal-content {
             background-color: black;
+
+            .submit {
+                background-color: #5C445D;
+    
+                &:hover {
+                    background-color: #C29E69;
+                }
+            }
         }
         
         .modal-header {
@@ -178,6 +217,14 @@ body.dark {
 
         .acronym-modal-content {
             background-color: black;
+
+            .submit {
+                background-color: #5C445D;
+    
+                &:hover {
+                    background-color: #C29E69;
+                }
+            }
         }
         
         .modal-header {
@@ -186,6 +233,13 @@ body.dark {
 
         .close {
             color: black;
+        }
+    }
+
+    #modes {
+        .dark-button {
+            background-color: black;
+            border-color: white;
         }
     }
 }

@@ -17,16 +17,49 @@
         <h1>Account Settings</h1>
     </heading>
 
-    <!-- <nav class="side-nav">
-        <ul class="nav-links">
-            <li class="nav-item"><a href="../tasklist/tasklist.html">Tasks</a></li>
-            <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
-            <li class="nav-item"><a href="../account/account.html" class="active">Account Settings</a></li>
-        </ul>
-    </nav> -->
+    <div id="sidebar">
+        <div class="toggle-open" onclick="show()">
+            <span></span>
+            <span></span>
+        </div>
+
+        <img src="../../light-assets/flower.png" width="100" height="100" class="profile"> 
+
+        <div class="sidebar-intro">
+            <p class="welcome">Welcome jlee6890!</p>
+            <button class="account"><a href="../account/account.html">Account Settings</a></button>
+        </div>
+        
+
+
+        <nav class="side-nav">
+            <ul class="nav-links">
+                <li class="nav-item"><a href="../tasklist/tasklist.html">Tasks</a></li>
+                <li class="nav-item"><a href="../acronym/acronym.html" class="active">Acronym Maker</a></li>
+            </ul>
+        </nav>
+
+        <div class="watch">
+            <select name="timer-select" id="timer-select">
+                <option value="Flow" id="flow-select">Flow Time Tracker</option>
+                <option value="Green" id="green-select">Green Time Tracker</option>
+            </select>
+            
+            <div class="time">
+                <p id="elapsed">Time elapsed since most <br> recent flow started:</p>
+                <p id="timer">00:00:00</p>
+            </div>
+    
+            <div class="controls">
+                <button class="main-buttons" id="start">Start</button>
+                <button class="main-buttons" id="stop">Stop</button>
+                <button class="main-buttons" id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
 
     <div id="modes">
-        <button id="mode-switch" class="light-button">Switch Mode</button>
+        <button id="mode-switch">Switch Mode</button>
     </div>
 
     <div class="music-container">

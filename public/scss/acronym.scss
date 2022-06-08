@@ -12,11 +12,22 @@
     transition: 0.5s;
     z-index: 2;
 
+    .profile {
+        float: left;
+        left: -100px;
+    }
+    
+    .sidebar-intro {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+    }
+
     .timer-side {
         list-style: none;
     }
 
-    .toggle-button {
+    .toggle-open {
         position: absolute;
         top: 300px;
         left: 450px;
@@ -34,31 +45,37 @@
         }
     }
 
+    .toggle-close {
+        font-size: 50px;
+        cursor: pointer;
+        margin-left: 5%;
+    }
+
     .side-nav {
         position: fixed;
         width: inherit;
-        top: 200px;
-        overflow: hidden;
+        top: 230px;
         height: 300px;
+        margin: 0 auto;
         
         .nav-item {
             list-style-type: none;
             float: left;
             padding: 1% 2%;
             position: relative;
-            top: 40px;
             text-align: center;
             width: 30%;
+            height: 40px;
             bottom: 0;
-            background-color: grey;
-            border-style: solid;
-            border-color: red;
+            left: 20px;
+            border: none;
+            border-radius: 10px;
         }
     }
 
     .watch {
         width: 80%;
-        height: 20vw;
+        height: 21vw;
         margin: 18vw auto 0 auto;
 
         #timer-select {
@@ -104,7 +121,7 @@
             display: none; 
             position: fixed; 
             z-index: 1; /* Sit on top */
-            padding-top: 200px; /* Location of the box */
+            padding-top: 100px; /* Location of the box */
             left: 0;
             top: 0;
             margin: -50px 0 0 -50px;
@@ -124,6 +141,8 @@
                 -webkit-animation-duration: 0.4s;
                 animation-name: animatetop;
                 animation-duration: 0.4s;
+                overflow: auto; /* Enable scroll if needed */
+
 
                 .modal-header {
                     padding: 2px 16px;
@@ -150,13 +169,13 @@
 
                 .first {
                     position: relative;
+                    clear: right;
                 }
+                
 
                 .remaining {
                     display: inline-block;
                     position: relative;
-                    left: 50%;
-                    top: -10%;
                 }
 
                 .modal-grid {

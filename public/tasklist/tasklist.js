@@ -1,5 +1,5 @@
 var lightImage = [
-  "../light-assets/bird.png",
+  "../light-assets/bird.svg",
   "../light-assets/cloud.png",
   "../light-assets/droplet.png",
   "../light-assets/flower.png",
