@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>StudBud - Account Settings</title>
     <link href="../scss/main.scss" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oleo+Script&display=swap" rel="stylesheet">
@@ -23,20 +24,21 @@
             <span></span>
         </div>
 
-        <img src="../../light-assets/flower.png" width="100" height="100" class="profile"> 
-
-        <div class="sidebar-intro">
-            <p class="welcome">Welcome jlee6890!</p>
-            <button class="account"><a href="../account/account.html">Account Settings</a></button>
-        </div>
-
         <span class="toggle-close" onclick="hide()">&times;</span>
 
+        <img src="../../light-assets/flower.png" width="100" height="100" class="profile"> 
+        
+        <div class="sidebar-intro">
+            <p class="welcome">Welcome jlee6890!</p>
+            <button id="button-account"> 
+                <a href="../account/account.html"> Account Settings </a>
+            </button> 
+        </div>
 
         <nav class="side-nav">
             <ul class="nav-links">
                 <li class="nav-item"><a href="../tasklist/tasklist.html">Tasks</a></li>
-                <li class="nav-item"><a href="../acronym/acronym.html" class="active">Acronym Maker</a></li>
+                <li class="nav-item"><a href="../acronym/acronym.html">Acronym Maker</a></li>
             </ul>
         </nav>
 
@@ -59,63 +61,73 @@
         </div>
     </div>
 
-    <main class="settings">
-        <div class="general">
-            <h2>General Settings</h2>
-            <p class="email">Email: jlee6890@uni.sydney.edu.au</p>
-            <p class="username">Username: jlee6890</p>
+    <!-- this 'main' section is where the user's details are located. in the future,
+    i would have liked to create a notification system as outlined in assessment 2 
+    which alerts users to make sure they receive the amount of 'green time' that they 
+    specified, as well as reminding them of their set sleep time  -->
+        <main class="settings">
+            <div class="general">
+                <h2>General Settings</h2>
+                <p class="email">Email: jlee6890@uni.sydney.edu.au</p>
+                <p class="username">Username: jlee6890</p>
+            </div>
+
+            <div class="preferences">
+                <h2>Preferences</h2>
+
+                <form id="preference-details">
+                    <label for="green-time">Amount of 'green time' per day:</label>
+                    <input type="time" name="green-time" class="green-time">
+                    <br>
+
+                    <label for="time">Designated sleeping time:</label>
+                    <input type="time" name="sleep-time" class="sleep-time">
+                </form>
+            </div>
+
+            <button class="settings-save">Save Settings</button>
+        </main>
+
+    <!-- this div stores the dark and light mode toggle button -->
+        <div id="modes">
+            <button id="mode-switch">Switch Mode</button>
         </div>
+    
+    <!-- the 'music-container' div is where i have created my music player, which is 
+    designed to play the mp3 files located in the 'music' folder. however, due to
+    issues that i was unable to resolve even with tutor assistance, it does not function
+    as intended. while the popup music details and functions do work, the music itself
+    does not run with user interaction, which is something i'd like to fix for the future -->
+        <div class="music-container">
+            <div class="music-info"> 
+                <h4 id="title">Ukulele</h4>
+                <div class="progress-container">
+                    <div class="progress"> 
 
-        <div class="preferences">
-            <h2>Preferences</h2>
+                    </div> 
+                </div>
+            </div>
 
-            <form id="preference-details">
-                <label for="green-time">Amount of 'green time' per day:</label>
-                <input type="time" name="green-time" class="green-time">
-                <br>
+            <audio src="../music/Sun and Moon - Sam Kim.mp3" id="audio"></audio>
 
-                <label for="time">Designated sleeping time:</label>
-                <input type="time" name="sleep-time" class="sleep-time">
-            </form>
-        </div>
+            <div class="img-container">
+                <img src="../assets/Sun And Moon - Sam Kim.jpg" alt="music-cover" id="cover"> 
+            </div>
 
-        <button class="settings-save">Save Settings</button>
-    </main>
+            <div class="music-navigation">
+                <button id="prev" class="action-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
 
-    <div id="modes">
-        <button id="mode-switch">Switch Mode</button>
-    </div>
+                <button id="play" class="action-btn action-big">
+                    <i class="fas fa-play"></i>
+                </button>
 
-    <div class="music-container">
-        <div class="music-info"> <!-- pop-up song title and progress bar -->
-            <h4 id="title">Ukulele</h4>
-            <div class="progress-container">
-                <div class="progress"> 
-
-                </div> 
+                <button id="next" class="action-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
             </div>
         </div>
-
-        <audio src="../music/music.mp3" id="audio"></audio>
-
-        <div class="img-container">
-            <img src="../assets/music.jpeg" alt="music-cover" id="cover"> 
-        </div>
-
-        <div class="music-navigation">
-            <button id="prev" class="action-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-
-            <button id="play" class="action-btn action-big">
-                <i class="fas fa-play"></i>
-            </button>
-
-            <button id="next" class="action-btn">
-                <i class="fas fa-forward"></i>
-            </button>
-        </div>
-    </div>
     
     <script src="./account.js" type="module"> </script>
 </body>

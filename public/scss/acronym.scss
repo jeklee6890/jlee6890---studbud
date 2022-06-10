@@ -155,13 +155,11 @@
                         font-weight: bold;
 
                         &:hover {
-                            color: #000;
                             text-decoration: none;
                             cursor: pointer;
                         }
 
                         &:focus {
-                            color: #000;
                             text-decoration: none;
                             cursor: pointer;
                         }
@@ -245,6 +243,28 @@
                 border: none;
                 top: -30px;
                 left: 50%;
+            }
+        }
+
+        .acronym-save {
+            display: block;
+            width: 140px;
+            height: 40px;
+            text-align: center;
+            border: none;
+            border-radius: 15px;
+            margin: 0 auto;
+            transition: ease 0.4s;
+            cursor: pointer;
+
+            &:hover {
+                transition: ease 0.4s; 
+            }
+
+            &:active {
+                #taskform {
+                    display: block;
+                }
             }
         }
     } 

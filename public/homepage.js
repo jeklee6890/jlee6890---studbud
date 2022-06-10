@@ -20,15 +20,41 @@
         '“The gentlest reminder: You might not need to read another self-help book, attend another training, or bookmark another Instagram post as much as you need to listen to, trust, and practice what you already know. What if the answer you’re looking for is actually within you already?” — Lisa Olivera'
     ]
 
-// 
-    newQuote();
+// these constants and variables are setting up the daily activity generator     
+    const dailyActivity = document.querySelector(".daily-activity");
+    var activities = [
+        'Exposure to bright light first thing in the morning increases feelings of wakefulness. To clear away morning grogginess, try turning on a lamp or your bedroom lights, or take in some sunlight within the first 5 to 10 minutes of waking up in the morning.',
+        'Instead of hopping out of bed abruptly or reaching for your phone, try allowing yourself time to wake up gradually. This will enhance feelings of tranquility for both mind and body, and reduce the changes of you going into auto-pilot.',
+        'Take a couple minutes to jot down your goals for the day, and you won’t need to worry about forgetting to do anything on the list!. List-writing works by reducing chaos and lending structure to your day, as well as support for your memory. Keep it small, realistic, and focused–monitor negative self-talk and watch out for tasks that aren’t necessary or contribute to distraction.',
+        'Walk Tall: Switch off your tech, put away your phones, and go back to the basics. A good book in a comfy rocking chair with a glass of your favorite drink can show you there is more to life than social media.',
+        'Practice Good Sleep Hygiene: For many of us, the evenings are when all the not-so-great stuff tends to occur to us. Anxieties about work, personal issues or grief, or other emotional concerns tend to stake their claim on our evenings as we spend most of our days trying to fend off these ills. By making time earlier in the day to work through challenging emotional material, and leaving positive stuff for night time, we set up ourselves up for successful sleep.'
+    ]
 
+
+    newQuote();
+    newActivity();
+
+// the newQuote function calls a new quote from the array using the array.length and math.random functionalities,
+// meaning each new user entry will call a new quote. this also means that i can add quotes in the future without
+// having to edit this function, only the array 
     function newQuote() {
         var quoteGenerator = Math.floor(Math.random() * quotes.length);
         let newQuote = document.createElement("p");
 
         newQuote.innerText = quotes[quoteGenerator];
         dailyQuote.appendChild(newQuote);
+    }
+
+    
+// the newActivity function calls a new activity from the array using the array.length and math.random functionalities,
+// meaning each new user entry will call a new activity. this also means that i can add activities in the future without
+// having to edit this function, only the array 
+    function newActivity() {
+        var activityGenerator = Math.floor(Math.random() * activities.length);
+        let newActivity = document.createElement("p");
+
+        newActivity.innerText = activities[activityGenerator];
+        dailyActivity.appendChild(newActivity);
     }
 
 

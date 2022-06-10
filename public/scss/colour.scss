@@ -8,6 +8,10 @@ body {
                 background-color: white;
             }
         }
+
+        #button-account {
+            background-color: white;
+        }
     }
     
     .homepage {
@@ -67,6 +71,12 @@ body {
                 background: black;
             }
         }
+
+        .toggle-close {
+            span {
+                background: white;
+            }
+        }
     }
 
     .task-modal {
@@ -91,6 +101,10 @@ body {
 
         .close {
             color: white;
+
+            &:hover {
+                color: black;
+            }
         }
     }
 
@@ -108,6 +122,14 @@ body {
 
         .close {
             color: white;
+        }
+    }
+
+    .acronym-save {
+        background-color: #BEDC97; 
+
+        &:hover {
+            background-color: #256945;
         }
     }
 
@@ -161,6 +183,10 @@ body.dark {
             .nav-item {
                 background-color: black;
             }
+        }
+
+        #button-account {
+            background-color: black;
         }
     }
     
@@ -221,6 +247,12 @@ body.dark {
                 background: white;
             }
         }
+
+        .toggle-close {
+            span {
+                background: black;
+            }
+        }
     }
 
     .task-modal {
@@ -243,6 +275,10 @@ body.dark {
 
         .close {
             color: black;
+
+            &:hover {
+                color: white;
+            }
         }
     }
 
@@ -266,6 +302,14 @@ body.dark {
 
         .close {
             color: black;
+        }
+    }
+
+    .acronym-save {
+        background-color: #BE9ABB; 
+
+        &:hover {
+            background-color: #FCF0AA;
         }
     }
 

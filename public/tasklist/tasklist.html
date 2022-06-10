@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>StudBud - Kanban Board</title>
     <link href="../scss/main.scss" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oleo+Script&display=swap" rel="stylesheet">
@@ -13,10 +14,13 @@
 </head>
 
 <body class="app-container">
-
     <heading id="kanban"> 
         <h1> Kanban Board </h1>
     </heading>
+
+    <!-- this div contains the html code for the sidebar that toggles in and out of the screen when the 
+    span is clicked by the user. inside the sidebar resides the links to studbud's other sections, allowing
+    for easy navigation -->
     <div id="sidebar">
         <div class="toggle-open" onclick="show()">
             <span></span>
@@ -29,7 +33,9 @@
         
         <div class="sidebar-intro">
             <p class="welcome">Welcome jlee6890!</p>
-            <a href="../account/account.html" class="account">Account Settings</a>
+            <button id="button-account"> 
+                <a href="../account/account.html"> Account Settings </a>
+            </button> 
         </div>
 
         <nav class="side-nav">
@@ -58,80 +64,81 @@
         </div>
     </div>
     
-
-        <main class="kanban-board"> 
-            <div id="k-board" class="k-board">
+    <!-- this 'main' section is where the kanban board and tasklist is located -->
+    <main class="kanban-board"> 
+        <div id="k-board" class="k-board">
     
-              <div class="task-modal">
-                    <div class="modal-content">
+            <!-- this modal contains the tasklist code which appears on the screen after the user
+            clicks the 'add-task' button -->
+            <div class="task-modal">
+                <div class="modal-content">
     
-                        <div class="modal-header">
-                            <span class="close">&times;</span>
-                            <h2>Add New Task</h2>
-                        </div>
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Add New Task</h2>
+                    </div>
     
-                           <div id="modal-grid">
-                                <form id="taskform">
-                                    <label for="task">Task:</label>
-                                    <input type="text" name="task" id="taskInput" required>
-                                    <br>
+                    <div id="modal-grid">
+                        <form id="taskform">
+                            <label for="task">Task:</label>
+                            <input type="text" name="task" id="taskInput" required>
+                            <br>
     
-                                    <label for="estimatedTime">Estimated completion time (in mins):</label>
-                                    <input type="number" name="estimatedTime" id="estimatedTimeInput">
-                                    <br>
+                            <label for="estimatedTime">Estimated completion time (in mins):</label>
+                            <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                            <br>
     
-                                    <label for="priority">Task Priority:</label>
-                                    <select name="prority" id="priorityInput">
-                                        <option value="">Select one</option>
-                                        <option value="Low">Low</option>
-                                        <option value="Medium">Medium</option>
-                                        <option value="High">High</option>
-                                    </select>
-                                    <br>
+                            <label for="priority">Task Priority:</label>
+                            <select name="prority" id="priorityInput">
+                                <option value="">Select one</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                            <br>
     
-                                    <button type="button" class="submit" id="submit">Submit</button>
-                                </form>
-                            </div>
+                            <button type="button" class="submit" id="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
+            </div>
 
         
-              
-                <div class="column">
-                  <h2>Not Started</h2>
+            <!-- these columns are where the tasklist cards appear once the user completes the form and
+            modal popup. usign javascript, the empty <ul> tags are then filled with the user input fields -->
+            <div class="column">
+                <h2 contenteditable="true" class="title">Not Started</h2>
     
-                  <div class="empty">
+                <div class="empty">
                     <p class="emptyList">You have not added any tasks yet.</p>
                     <ul></ul>
-                  </div>
-    
-                  <button class="add-task">+ Add Task</button>
                 </div>
     
-                <div class="column">
-                  <h2>In Progress</h2>
-                  
-                    <div class="empty">
-                      <p class="emptyList">You have not added any tasks yet.</p>
-                      <ul></ul>
-                    </div>
-                    
-                    <button class="add-task">+ Add Task</button>
-                </div>
-    
-                <div class="column">
-                  <h2>Completed</h2>
-                  <div class="empty">
-                      <p class="emptyList">You have not added any tasks yet.</p>
-                      <ul></ul>
-                  </div>
-    
-                    <button class="add-task">+ Add Task</button>
-                </div>
-    
-      
+                <button class="add-task">+ Add Task</button>
             </div>
-        </main>
+    
+            <div class="column">
+                <h2 contenteditable="true" class="title">In Progress</h2>
+                  
+                <div class="empty">
+                    <p class="emptyList">You have not added any tasks yet.</p>
+                    <ul></ul>
+                </div>
+                    
+                <button class="add-task">+ Add Task</button>
+            </div>
+    
+            <div class="column">
+                <h2 contenteditable="true" class="title">Completed</h2>
+                <div class="empty">
+                    <p class="emptyList">You have not added any tasks yet.</p>
+                    <ul></ul>
+                </div>
+    
+                <button class="add-task">+ Add Task</button>
+            </div>
+        </div>
+    </main>
 
 
     <script src="./tasklist.js"> </script>

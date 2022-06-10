@@ -1,296 +1,376 @@
-var lightImage = [
-  "../light-assets/bird.svg",
-  "../light-assets/cloud.png",
-  "../light-assets/droplet.png",
-  "../light-assets/flower.png",
-  "../light-assets/leaf.png",
-  "../light-assets/trees.png",
-  "../light-assets/wave.png"
-]
+var timerChange = document.getElementById("timer-select");
+var greenTimer = document.getElementById("elapsed");
 
-var darkImage = [
-  "../dark-assets/bird.png",
-  "../dark-assets/cloud.png",
-  "../dark-assets/droplet.png",
-  "../dark-assets/flower.png",
-  "../dark-assets/leaf.png",
-  "../dark-assets/trees.png",
-  "../dark-assets/wave.png"
-]
+timerChange.onchange = function() {
+  greenTimer.innerHTML = "Time elapsed since" + "<br>" + "getting 'green time':"
+}
 
-// here i am creating the pop-up modal when the user clicks the 'add-task' button
-var modal = document.querySelector(".task-modal");
-var btn = document.getElementsByClassName("add-task");
+
+// these two arrays store the links to the drawings i have made in relation to the user's chosen theme. 
+// if they use light-mode, then the images inside lightImage will be loaded, and the same if they  
+// choose dark-mode with the images in darkImage
+  var lightImage = [
+    "../light-assets/bird.svg",
+    "../light-assets/cloud.png",
+    "../light-assets/droplet.png",
+    "../light-assets/flower.png",
+    "../light-assets/leaf.png",
+    "../light-assets/trees.png",
+    "../light-assets/wave.png"
+  ]
+
+  var darkImage = [
+    "../dark-assets/bird.png",
+    "../dark-assets/cloud.png",
+    "../dark-assets/droplet.png",
+    "../dark-assets/flower.png",
+    "../dark-assets/leaf.png",
+    "../dark-assets/trees.png",
+    "../dark-assets/wave.png"
+  ]
+
+// this code is for the pop-up modal when the user clicks the 'add-task' button, initialising the variables first 
+  var modal = document.querySelector(".task-modal");
+  var btn = document.getElementsByClassName("add-task");
 
 // retrieving the <span> element which will close the modal
-var span = document.getElementsByClassName("close");
+  var span = document.getElementsByClassName("close");
 
 
-var taskListArray = [];
+// functions to make the sidebar appear based on the user's interactions
+  function show() {
+    document.getElementById("sidebar").style.marginLeft = "500px";
+  }
+
+  function hide() {
+    document.getElementById("sidebar").style.marginLeft = "0px";
+  }
+
+
 
 // this function will open the modal and allow the user to make a new task 
 // when they click on the 'add-task' button
-for (var i = 0; i < btn.length; i++) {
-  btn[i].addEventListener("click", function () {
-    modal.style.display = "block";
-  });
-}
-
-// the modal when they click on the 'x' button
-for (var i = 0; i < span.length; i++) {
-  span[i].addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-}
-
-let submit = document.querySelector(".submit");
-
-submit.onclick = function() {
-    modal.style.display = "none";
-}
-
-
-
-
-// Bind an event to the submit button to capture information from the form and store it into localStorage.
-let subButton = document.getElementById("submit");
-
-// Render the items from local storage so the page appears correct when it loads.
-renderItems();
-
-// The event listener gets bound to the submit button and the contents of the internal function are run when the button is clicked.
-subButton.addEventListener("click", function() {
-
-  // Start by getting the form values.
-  let itemName = document.getElementById("taskInput").value;
-  let completion = document.getElementById("estimatedTimeInput").value; 
-
-  if(itemName == "") { document.getElementById("taskInput").classList.add("error");
-    return;
+  for (var i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", function () {
+      modal.style.display = "block";
+    });
   }
 
-  // Make a JS object to contain the data we want to write into local storage for each item. This is nice because we can have one key:value pair as we do here, or 50.
-  let itemObj = {
-    'itemName': itemName,
-    'completion': completion
-  };
+// the modal when they click on the 'x' button
+  for (var i = 0; i < span.length; i++) {
+    span[i].addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  }
 
-  // Get the item list from localStorage. This uses a custom function, since we need to do this action in a few different places. See that function for deets of how it works.
-  let existingItems = getItems();
+// the 'submit' variable hides the tasklist modal once the user completes the input fields
+  let submit = document.querySelector(".submit");
 
-  // Add the new item onto the end of the list.
-  existingItems.push(itemObj);
+  submit.onclick = function() {
+      modal.style.display = "none";
+  }
 
-  // Local storage can only store strings, while we want to store an array. To get around this, we use JSON.stringify (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
-  existingItems = JSON.stringify(existingItems);
+// array for storing the tasklist inputs 
+  var taskListArray = [];
 
-  // And finally we write the JSON string into local storage.
-  localStorage.setItem('items', existingItems);
 
-  // Render the items using our custom function.
-  taskListArray.push(itemObj);
+// this subButton will get the information from the takslist form, which is later added to local storage
+  let subButton = document.getElementById("submit");
+
+// the renderItems function is called to get the task from local storage
   renderItems();
+
+// this event listener is for when the user clicks on the submit button 
+  subButton.addEventListener("click", function() {
+
+    // Start by getting the form values.
+    let itemName = document.getElementById("taskInput").value;
+    let itemCompletion = document.getElementById("estimatedTimeInput").value; 
+    let itemPriority = document.getElementById("priorityInput").value; 
+
+    if(itemName == "") { document.getElementById("taskInput").classList.add("error");
+      return;
+  }
+
+  // here i am making an object that will store the tasklist data 
+    let itemObj = {
+      'itemName': itemName,
+      'itemCpmpletion': itemCompletion,
+      'itemPriority': itemPriority
+    };
+
+    let existingItems = getItems();
+
+  // by using the push function, a new task can be added and stored into local storage
+    existingItems.push(itemObj);
+
+  // this JSON.stringify function helps to convert the array into a string so it can be put into local storage
+    existingItems = JSON.stringify(existingItems);
+
+    localStorage.setItem('items', existingItems);
+
+    taskListArray.push(itemObj);
+    renderItems();
 });
 
 
 
 
 // code for drag-and-drop feature 
-const todos = document.querySelectorAll(".todo");
-const all_status = document.querySelectorAll(".column");
-let draggableTodo = null;
+  const todos = document.querySelectorAll(".completionCard");
+  const all_status = document.querySelectorAll(".column");
+  let draggableTodo = null;
 
-todos.forEach((todo) => {
-  todo.addEventListener("dragstart", dragStart);
-  todo.addEventListener("dragend", dragEnd);
-});
+  todos.forEach((todo) => {
+    todo.addEventListener("dragstart", dragStart);
+    todo.addEventListener("dragend", dragEnd);
+  });
 
-
-
-
-
-
-////////////////////////////////////////
-// Now we have some custom functions to handle tasks we have to do in order to make all this work.
-////////////////////////////////////////
-
-// getItems should be fairly self explanatory. It gets items from local storage!
-function getItems() {
-  // Check to see if we have any item items in local storage already
-  let items = localStorage.getItem('items');
-
-  // If the value of the items variable is `null` then we have not created or used localStorage yet. If this is true, we create an empty array and return that to the code that ran getItems(). 
-  if (items == null) {
-    return [];
+// these functions help to execute the drag and drop feature by changing the features of the tasklist card 
+  function dragStart() {
+    draggableTodo = this;
+    setTimeout(() => {
+      this.style.display = "none";
+    }, 0);
   }
 
-  // If we are still here, then we do have items in the list, or the list is empty.
-  // Either way, we convert that information back into an array using JSON.parse (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse), this is the opposite action to JSON.stringify.
-  items = JSON.parse(items);
+  function dragEnd() {
+    draggableTodo = null;
+    setTimeout(() => {
+      this.style.display = "block";
+    }, 0);
+  }
 
-  // Return the list of items back to the code that ran this function.
-  return items;
-}
-
-// Render the items to the screen using the DOM manipulation methods.
-function renderItems() {
-  // Use our custom getItems() function to retrieve info from local storage.
-  let items = getItems();
-
-  // Find the UL element within the #itemlist DIV.
-  let itemUl = document.querySelector('.empty ul');
-
-  // Clear the contents of the UL to rebuild it fresh.
-  itemUl.innerHTML = ""; // <-- this is the one time I'm okay with you using innerHTML. Otherwise build the DOM elements properly and don't concatenate strings :)
-
-  // forEach is like a shorthand for() loop. It runs the internal function once per item in the array.
-  items.forEach(function(item) {
-
-    // Create a li DOM element to hold each item
-    let itemLi = document.createElement('p'); 
-
-    // Create a span element to hold the name of the item.
-    let completionCard = document.createElement("div");
-    completionCard.setAttribute("class", "completionCard");
-
-    let itemName = document.createElement('span');
-    itemName.innerText = item.itemName; // And we just put the text into this span, and nothing else.
-
-    // let priority = document.createElement("span");
-    // completion.innerText = 
-
-    let space = document.createElement("br");
+  all_status.forEach((column) => {
+      column.addEventListener("dragover", dragOver);
+      column.addEventListener("dragenter", dragEnter);
+      column.addEventListener("dragleave", dragLeave);
+      column.addEventListener("drop", dragDrop);
+  });
+  
+  function dragOver(e) {
+      e.preventDefault();
+  }
     
+  function dragEnter() {
+      this.style.border = "1px dashed #ccc";
+  }
+    
+  function dragLeave() {
+      this.style.border = "none";
+  }
+  
+  function dragDrop() {
+      this.style.border = "none";
+      this.appendChild(draggableTodo);
 
-    // Add an element to represent the remove button
-    let itemRemove = document.createElement('button');
-    itemRemove.setAttribute('class', 'remove');
-    itemRemove.innerText = 'x'; // You can CSS this later to be pretty
+  }
 
-    // Add an event handler to the remove button. To make this work properly we need to do two things. Remove the DOM element from the document _AND_ remove the correct item from the local storage list.
-    itemRemove.addEventListener("click", function() {
-      // This allows us to remove the list li element directly which takes care of the visual removal.
-      let id = event.target.parentElement.getAttribute('data-id');
-      let index = taskListArray.findIndex(task => task.id === Number(id));
-      removeItemFromArray(taskListArray, index)
+// these variables are for the timer that is located in the sidebar
+  const timeElement = document.querySelector('.time');
+  const buttonStart = document.getElementById('start');
+  const buttonStop = document.getElementById('stop');
+  const buttonReset = document.getElementById('reset');
+  
+  let seconds = 0;
+  let interval = null;
+  
+// by using event listeners, the timer will stop and start based on the user's interaction  
+  buttonStart.addEventListener('click', startTimer);
+  buttonStop.addEventListener('click', stopTimer);
+  buttonReset.addEventListener('click', resetTimer);
+  
+  function timer() {
+    seconds++;
+  
+    let hours = Math.floor(seconds / 3600);
+    let mins = Math.floor((seconds - (hours * 3600)) / 60);
+    let secs = seconds % 60;
+    
+    // these 'if' statements make sure the timer displays the correct time 
+      if(secs < 10) {
+          secs = "0" + secs;
+      }
+      if (mins < 10) {
+          mins = "0" + mins;
+      }
+      if (hours < 10) {
+          hours = "0" + hours;
+      }
+    
+      timeElement.innerText = `${hours}:${mins}:${secs}` ;
+  }
+  
+  
+// here i am creating the custom functions to help the timer load which will be executed on their
+// respective buttons i.e. startTimer will run when the 'start' button is clicked etc  
+  function startTimer() {
+    if(interval) {
+        return;
+    }
+    interval = setInterval(timer, 1000);
+  }
+  
+  
+  
+  function stopTimer() {
+    clearInterval(interval);
+    interval = null;
+  }
+  
+  
+  function resetTimer() {
+    stop();
+    seconds = 0;
+    timeElement.innerText = "00:00:00";
+  }
+  
+  
 
-      itemLi.remove();
 
-      // And the custom removeItem function helps us to remove it from local storage.
-      removeItem(item.itemName);
-      updateEmpty();
 
+
+// these functions are for the tasklist and kanban board; getItems is for retrieving the tasks from local storage
+  function getItems() {
+    // checking if we have any item items in local storage already
+    let items = localStorage.getItem('items');
+
+    if (items == null) {
+      return [];
+    }
+
+    // If we are still here, then we do have items in the list, or the list is empty.
+    // Either way, we convert that information back into an array using JSON.parse (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse), this is the opposite action to JSON.stringify.
+    items = JSON.parse(items);
+
+    return items;
+  }
+
+// renderItems is a function to print the tasks onto the screen 
+  function renderItems() {
+    let items = getItems();
+
+    // this variable allows the javascript code to print into the empty <ul> tag from the html code
+    let itemUl = document.querySelector('.empty ul');
+
+    items.forEach(function(item) {
+
+      // itemLi will contain all of the tasklist input fields that will then be printed on the screen
+      let itemLi = document.createElement('p'); 
+
+      // completionCard is the div that will also hold the tasklist data and will be 
+      // draggable so it can be moved between kanban columns 
+      let completionCard = document.createElement("div");
+      completionCard.setAttribute("class", "completionCard");
+      completionCard.setAttribute("draggable", "true");
+
+      let itemName = document.createElement('span');
+      itemName.innerText = item.itemName;
+      itemName.setAttribute("class", "itemName");
+
+      let space = document.createElement("br");
+
+      let itemPriority = document.createElement('span');
+      itemPriority.innerText = "Priority: " + item.itemPriority;
+
+      let itemCompletion = document.createElement('span');
+      itemCompletion.innerText = "Completion Status: " + item.itemCompletion;
+      
+
+      // this button will remove the task card from the kanban baord 
+      let itemRemove = document.createElement('button');
+      itemRemove.setAttribute('class', 'remove');
+      itemRemove.innerText = 'x';
+
+
+      // Add an event handler to the remove button. To make this work properly we need to do two things. Remove the DOM element from the document _AND_ remove the correct item from the local storage list.
+      itemRemove.addEventListener("click", function() {
+        // This allows us to remove the list li element directly which takes care of the visual removal.
+        let id = event.target.parentElement.getAttribute('data-id');
+        let index = taskListArray.findIndex(task => task.id === Number(id));
+        removeItemFromArray(taskListArray, index)
+
+        itemLi.remove();
+
+        // And the custom removeItem function helps us to remove it from local storage.
+        removeItem(item.itemName);
+        updateEmpty();
+      });
+
+      // these variables and code will allow the illustrations i have created for each 
+      // css mode (light and dark) to be loaded onto the screen randomly with each task card, 
+      // adding an element of dynamacy and visual interest for the user. 
+      var imgGenerator = Math.floor(Math.random() * lightImage.length);
+      let newImage = new Image(100, 100);
+      newImage.src = lightImage[imgGenerator];
+
+      if(body.classList.contains("dark")) {
+        let newImage = new Image(100, 100);
+        newImage.src = darkImage[imgGenerator];
+      }
+
+      // finally, all of the new elements are appended to the completionCard and itemLi 
+      // elements, which will then be added to the kanban columns 
+      itemLi.appendChild(completionCard);
+      completionCard.appendChild(newImage);
+      completionCard.appendChild(itemRemove);
+      completionCard.appendChild(itemName);
+      completionCard.appendChild(space);
+      completionCard.appendChild(itemPriority);
+      completionCard.appendChild(space);
+      completionCard.appendChild(itemCompletion);
+      completionCard.appendChild(space);
+
+    
+      // adding the li to the empty <ul>
+      itemUl.appendChild(itemLi);
+    });
+  }
+
+// the removeItem function will run when the user clicks the remove button in order to remove the task from local storage
+  function removeItem(itemName) {
+    let items = getItems();
+
+    // this code makes sure i am removing the correct task using the array index 
+    let itemIndex = items.findIndex(function(item) {
+      return item.itemName == itemName;
     });
 
-    var imgGenerator = Math.floor(Math.random() * lightImage.length);
-    let newImage = new Image(100, 100);
-    newImage.src = lightImage[imgGenerator];
+    // splice helps to remove the task once the array indexes match
+    items.splice(itemIndex, 1);
 
-    
-    itemLi.appendChild(completionCard);
-    completionCard.appendChild(newImage);
-    itemLi.appendChild(completionCard);
-    completionCard.appendChild(itemRemove);
-    completionCard.appendChild(itemName);
-    // completionCard.appendChild(completion);
-    completionCard.appendChild(space);
-
-    
-
-    // Add the li to the ul.
-    itemUl.appendChild(itemLi);
-  });
-}
-
-// Removes a specific item, by name from local storage.
-function removeItem(itemName) {
-  // Use our custom getItems() function to retrieve info from local storage. Since we need to do this in a few places, see how the custom function is more efficient?
-  let items = getItems();
-
-  // This helps us to find the array index for the item that we want to remove. It compares the information we pass in (via the itemName variable) to the information in the objects within the array. If it matches, we get a number back - i.e. items[3].
-  let itemIndex = items.findIndex(function(item) {
-    return item.itemName == itemName;
-  });
-
-  // We've talked about splice() in class before (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), it removes a specific item out of the array 
-  items.splice(itemIndex, 1);
-
-  // Now we do the same process of writing information back into local storage that we did earlier.
-  items = JSON.stringify(items);
-  localStorage.setItem('items', items);
-}
+    items = JSON.stringify(items);
+    localStorage.setItem('items', items);
+  }
 
 
-// Function to hide the 'you haven't added any tasks' text
-function updateEmpty() {
-    if (taskListArray.length > 0) {
-        document.getElementsByClassName('emptyList').style.display = 'none';
-    } else {
-        document.getElementsByClassName('emptyList').style.display = 'block';
-    }
-}
+// function to hide the 'you haven't added any tasks' text
+  function updateEmpty() {
+      if (taskListArray.length > 0) {
+          document.getElementsByClassName('emptyList').style.display = 'none';
+      } else {
+          document.getElementsByClassName('emptyList').style.display = 'block';
+      }
+  }
 
-function removeItemFromArray(arr, index) {
-    if (index > -1) {
-        arr.splice(index, 1)
-    }
-    return arr;
-}
+// function to remove the task from the taskListArray  
+  function removeItemFromArray(arr, index) {
+      if (index > -1) {
+          arr.splice(index, 1)
+      }
+      return arr;
+  }
 
 
 
 
-// functions for drag and drop feature 
-
-function dragStart() {
-  draggableTodo = this;
-  setTimeout(() => {
-    this.style.display = "none";
-  }, 0);
-}
-
-function dragEnd() {
-  draggableTodo = null;
-  setTimeout(() => {
-    this.style.display = "block";
-  }, 0);
-}
-
-all_status.forEach((status) => {
-    column.addEventListener("dragover", dragOver);
-    column.addEventListener("dragenter", dragEnter);
-    column.addEventListener("dragleave", dragLeave);
-    column.addEventListener("drop", dragDrop);
-});
   
-function dragOver(e) {
-    e.preventDefault();
-}
-  
-function dragEnter() {
-    this.style.border = "1px dashed #ccc";
-}
-  
-function dragLeave() {
-    this.style.border = "none";
-}
-  
-function dragDrop() {
-    this.style.border = "none";
-    this.appendChild(draggableTodo);
-
-}
-
-function show() {
-  document.getElementById("sidebar").style.marginLeft = "500px";
-}
-
-function hide() {
-  document.getElementById("sidebar").style.marginLeft = "0px";
-}
+// the code below is for an addColumn button which i was unable to implement in time. for future 
+// development, this feature is something i would like to execute 
 
 
-// this event listener is being added to the "add column" button
+
+
 // document.getElementById("myBtn").addEventListener("click", addColumn); 
 
 // here, i am creating the addColumn() function which creates a new column containing a heading and 

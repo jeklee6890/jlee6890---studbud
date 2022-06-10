@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>StudBud - Acronym Maker</title>
     <link href="../scss/main.scss" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Oleo+Script&display=swap" rel="stylesheet">
@@ -17,6 +18,7 @@
         <h1> Acronym Maker </h1>
     </heading>
 
+    <!-- the sidebar contains the same code as the other html pages -->
     <div id="sidebar">
         <div class="toggle-open" onclick="show()">
             <span></span>
@@ -59,10 +61,13 @@
     </div>
     
         
-    
+    <!-- similar to the kanban board, i have designed the acronym maker to display in columns
+    so that the user can organise their acronyms into their desired sections -->
     <main class="acronym-board"> 
         <div id="a-board" class="a-board">
         
+            <!-- this modal resembles the tasklist modal but instead allows users to create the
+            acronym in the first input field, and then explain the acronym in the second input -->
             <div class="acronym-modal">
                 <div class="acronym-modal-content">
         
@@ -73,38 +78,16 @@
         
                     <div id="modal-grid">
                         <form id="acronym-form">
-                            <p>Word 1:</p>
-                            <label for="task" class="first">First Letter</label>
+                            <p>First Letters of Acronym:</p>
+                            <label for="task" class="first">First Letters</label>
                             <input type="text" name="letter" class="first" required>
-                                
-                            <label for="task" class="remaining">Remaining Letters</label>
+                            <br>
+                              
+                            <p>Meaning of Acronym:</p>
+                            <label for="task" class="remaining">Acronym Meaning</label>
                             <input type="text" name="letter" class="remaining" required>
                             <br>
 
-                            <p>Word 2:</p>
-                            <label for="task" class="first" >First Letter</label>
-                            <input type="text" name="letter" class="first" required>
-                                
-                            <label for="task" class="remaining">Remaining Letters</label>
-                            <input type="text" name="letter" class="remaining" required>
-                            <br>
-
-                            <p>Word 3:</p>
-                            <label for="task" class="first">First Letter</label>
-                            <input type="text" name="letter" class="first" required>
-                                
-                            <label for="task" class="remaining">Remaining Letters</label>
-                            <input type="text" name="letter" class="remaining" required>
-                            <br>
-
-                            <p>Word 4:</p>
-                            <label for="task" class="first">First Letter</label>
-                            <input type="text" name="letter" class="first" required>
-                                
-                            <label for="task" class="remaining">Remaining Letters</label>
-                            <input type="text" name="letter" class="remaining" required>
-                            <br>
-        
                             <button type="button" class="submit" id="submit">Submit</button>
                         </form>
                     </div>
@@ -112,9 +95,10 @@
             </div>
     
             
-                  
+            <!-- these columns are where the acronym cards will appear, with the empty <ul> sections
+            for the javascript to make the acronyms appear -->
             <div class="column">
-                <h2>Acronym 1</h2>
+                <h2 contenteditable="true" class="title">Category 1 (Edit)</h2>
         
                 <div class="empty">
                     <p class="emptyAcronym">You have not added any acronyms yet.</p>
@@ -125,7 +109,7 @@
             </div>
 
             <div class="column">
-                <h2>Acronym 2</h2>
+                <h2 contenteditable="true" class="title">Category 2 (Edit)</h2>
         
                 <div class="empty">
                     <p class="emptyAcronym">You have not added any acronyms yet.</p>
@@ -134,8 +118,17 @@
         
                 <button class="add-acronym">+ Add Acronym</button>
             </div>
+
+            <div class="column">
+                <h2 contenteditable="true" class="title">Category 3 (Edit)</h2>
         
-          
+                <div class="empty">
+                    <p class="emptyAcronym">You have not added any acronyms yet.</p>
+                    <ul></ul>
+                </div>
+        
+                <button class="add-acronym">+ Add Acronym</button>
+            </div>
         </div>
     </main>
     

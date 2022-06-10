@@ -23,131 +23,128 @@ modeButton.addEventListener("click", () => {
   } 
 });
 
-
-
-
-// constants for music player 
-const musicContainer = document.querySelector(".music-container");
-const prevBtn = document.querySelector("#prev");
-const playBtn = document.querySelector("#play");
-const nextBtn = document.querySelector("#next");
-const audio = document.querySelector("#audio");
-const progress = document.querySelector(".progress");
-const progressContainer = document.querySelector(".progress-container");
-const title = document.querySelector("#title");
-const cover = document.querySelector("#cover");
-
-
-// song titles 
-const songs = ['music', 'ukelele'];
-
-let songIndex = 1;
-
-// initially load song
-loadSong(songs[songIndex]);
-
-
-
-
-// event listener for music player
-playBtn.addEventListener("click", () => {
-  const isPlaying = musicContainer.classList.contains("play");
-
-  if(isPlaying) {
-    pauseSong();
-  } else {
-    playSong();
-  }
-});
-
-// event listener for previous and next song
-prevBtn.addEventListener("click", previousSong);
-nextBtn.addEventListener("click", nextSong);
-
-// event listeners for progress bar
-audio.addEventListener("timeupdate", updateProgress);
-progressContainer.addEventListener("click", setProgress);
-
-// event listener for loading next song in the music player 
-audio.addEventListener('ended', nextSong);
-
-
-
-
 // custom functions 
 function darkMode() {
   document.body.classList.toggle("dark");
-  modeButton.classList.remove("light-button");
-  modeButton.classList.add("dark-button");
+  modeButton.classList.toggle("dark-button");
 }
 
 function lightMode() {
   document.body.classList.toggle("light");
   modeButton.classList.remove("dark-button");
-  modeButton.classList.add("light-button");
 }
 
-function loadSong(song) {
-  title.innerText = song;
 
-  audio.src = "music.mp3";
-  cover.src = `assets/${cover}.jpg`;
-}
 
-// Play song
-function playSong() {
-  musicContainer.classList.add('play');
-  playBtn.querySelector('i.fas').classList.remove('fa-play');
-  playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-  audio.play();
-}
 
-function pauseSong() {
-  musicContainer.classList.remove("play");
-  playBtn.querySelector("i.fas").classList.add("fa-play");
-  playBtn.querySelector("i.fas").classList.remove("fa-pause");
-  
-  audio.pause();
-}
+// these constants are for the music player 
+  const musicContainer = document.querySelector(".music-container");
+  const prevBtn = document.querySelector("#prev");
+  const playBtn = document.querySelector("#play");
+  const nextBtn = document.querySelector("#next");
+  const audio = document.querySelector("#audio");
+  const progress = document.querySelector(".progress");
+  const progressContainer = document.querySelector(".progress-container");
+  const title = document.querySelector("#title");
+  const cover = document.querySelector("#cover");
 
-function previousSong() {
-  songIndex--;
 
-  if(songIndex < 0) {
-    songIndex = songs.length - 1;
+// song titles which will be used for the music and cover photo in the music player 
+const songs = ['Evergreen - Yebba', 'Sun and Moon - Sam Kim', 'Everytime - Ariana Grande'];
+
+let songIndex = 1;
+
+// initially load song using the initialised array above
+  loadSong(songs[songIndex]);
+
+
+// event listener for music player
+  playBtn.addEventListener("click", () => {
+    const isPlaying = musicContainer.classList.contains("play");
+
+    if(isPlaying) {
+      pauseSong();
+    } else {
+      playSong();
+    }
+  });
+
+// event listener for previous and next song
+  prevBtn.addEventListener("click", previousSong);
+  nextBtn.addEventListener("click", nextSong);
+
+// event listeners for progress bar
+  audio.addEventListener("timeupdate", updateProgress);
+  progressContainer.addEventListener("click", setProgress);
+
+// event listener for loading next song in the music player 
+  audio.addEventListener('ended', nextSong);
+
+
+  function loadSong(song) {
+    title.innerText = song;
+
+    audio.src = `../music/${audio}.mp3`;
+    cover.src = `../assets/${cover}.jpg`;
   }
 
-  loadSong(songs[songIndex]);
-  playSong();
-}
+// the following functions allow the music player to update with the user's interaction e.g. 
+// changing the play button to a pause button once the music starts, and creating a loop so 
+// that the user can play all the songs in the playlist 
+  function playSong() {
+    musicContainer.classList.add('play');
+    playBtn.querySelector('i.fas').classList.remove('fa-play');
+    playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-function nextSong() {
-  songIndex++;
-
-  if(songIndex > songs.length - 1) {
-    songIndex = 0;
+    audio.play();
   }
 
-  loadSong(songs[songIndex]);
-  playSong();
-}
+  function pauseSong() {
+    musicContainer.classList.remove("play");
+    playBtn.querySelector("i.fas").classList.add("fa-play");
+    playBtn.querySelector("i.fas").classList.remove("fa-pause");
+    
+    audio.pause();
+  }
 
-// Update progress bar
-function updateProgress(e) {
-  const { duration, currentTime } = e.srcElement;
-  const progressPercent = (currentTime / duration) * 100;
-  progress.style.width = `${progressPercent}%`;
-}
+  function previousSong() {
+    songIndex--;
 
-// Set progress bar
-function setProgress(e) {
-  const width = this.clientWidth;
-  const clickX = e.offsetX;
-  const duration = audio.duration;
+    if(songIndex < 0) {
+      songIndex = songs.length - 1;
+    }
 
-  audio.currentTime = (clickX / width) * duration;
-}
+    loadSong(songs[songIndex]);
+    playSong();
+  }
+
+  function nextSong() {
+    songIndex++;
+
+    if(songIndex > songs.length - 1) {
+      songIndex = 0;
+    }
+
+    loadSong(songs[songIndex]);
+    playSong();
+  }
+
+// updating the progress bar
+  function updateProgress(e) {
+    const { duration, currentTime } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+  }
+
+// setting the progress bar based on where the user is playing the music
+  function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+
+    audio.currentTime = (clickX / width) * duration;
+  }
 
 const timeElement = document.querySelector('.watch .time');
 const buttonStart = document.getElementById('start');

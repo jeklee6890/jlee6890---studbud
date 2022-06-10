@@ -7,14 +7,6 @@
     margin-top: -70px;
 }
 
-.dark-button {
-    border-radius: 25px;
-}
-
-.light-button {
-    border-radius: 25px;
-}
-
 .settings {
     .general {
         padding: 1%;
@@ -36,6 +28,121 @@
 
         &:hover {
             transition: ease 0.4s; 
+        }
+    }
+}
+
+#sidebar {
+    position: fixed;
+    width: 350px;
+    height: 90%;
+    margin-top: -200px;
+    left: -450px;
+    transition: 0.5s;
+    z-index: 2;
+
+    .toggle-close {
+        font-size: 50px;
+        cursor: pointer;
+        margin-left: 5%;
+    }
+
+    .profile {
+        position: absolute;
+        left: 50px;
+        margin-top: 50px;
+    }
+
+    .sidebar-intro {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+
+        #button-account {
+            padding: 1% 2%;
+            text-align: center;
+            height: 40px;
+            bottom: 0;
+            left: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+    }
+
+    .timer-side {
+        list-style: none;
+    }
+
+    .toggle-open {
+        position: absolute;
+        top: 300px;
+        left: 450px;
+    
+        span {
+            width: 40px;
+            height: 3px;
+            display: block;
+            transform: rotate(45deg);
+        }
+    
+        span:nth-child(2) {
+            transform: rotate(-45deg);
+            margin-top: 25px;
+        }
+    }
+
+    .side-nav {
+        position: fixed;
+        width: inherit;
+        top: 230px;
+        height: 300px;
+        margin: 0 auto;
+        
+        .nav-item {
+            list-style-type: none;
+            float: left;
+            padding: 1% 2%;
+            position: relative;
+            text-align: center;
+            width: 30%;
+            height: 40px;
+            bottom: 0;
+            left: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+    }
+
+    .watch {
+        width: 80%;
+        height: 21vw;
+        margin: 15vw auto 0 auto;
+
+        #timer-select {
+            border: none;
+            width: 180px;
+            height: 50px;
+            margin: 20px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .main-buttons {
+                width: 30%;
+                height: 3%;
+                border: none;
+                padding: 10px;
+                border-radius: 10px;
+            }
+        }
+        
+        .time {
+            text-align: center;
         }
     }
 }
@@ -122,7 +229,7 @@
     }
 
     .progress {
-        background-color: greenyellow;
+        background-color: black;
         border-radius: 5px;
         height: 100%;
         width: 0%;
