@@ -304,11 +304,6 @@ timerChange.onchange = function() {
       let newImage = new Image(100, 100);
       newImage.src = lightImage[imgGenerator];
 
-      if(body.classList.contains("dark")) {
-        let newImage = new Image(100, 100);
-        newImage.src = darkImage[imgGenerator];
-      }
-
       // finally, all of the new elements are appended to the completionCard and itemLi 
       // elements, which will then be added to the kanban columns 
       itemLi.appendChild(completionCard);
